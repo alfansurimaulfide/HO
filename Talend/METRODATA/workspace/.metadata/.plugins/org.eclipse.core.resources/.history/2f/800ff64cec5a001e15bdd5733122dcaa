@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:TalendProperties="http://www.talend.org/properties">
+  <TalendProperties:Property xmi:id="_YZxboFSoEe6WYNcP8SL_fg" id="_YZtxRlSoEe6WYNcP8SL_fg" label="MySQLDropSourceTable" version="0.1" item="_YZxbolSoEe6WYNcP8SL_fg">
+    <author href="../../../talend.project#_XAacAVSoEe6WYNcP8SL_fg"/>
+    <additionalProperties xmi:id="_YZypwFSoEe6WYNcP8SL_fg" key="created_product_fullname" value="Talend Open Studio for Big Data"/>
+    <additionalProperties xmi:id="_YZypwVSoEe6WYNcP8SL_fg" key="created_product_version" value="8.0.1.20211109_1610"/>
+    <additionalProperties xmi:id="_YZypwlSoEe6WYNcP8SL_fg" key="created_date" value="2023-09-16T22:47:46.396+0700"/>
+    <additionalProperties xmi:id="_YZypw1SoEe6WYNcP8SL_fg" key="modified_product_fullname" value="Talend Open Studio for Big Data"/>
+    <additionalProperties xmi:id="_YZypxFSoEe6WYNcP8SL_fg" key="modified_product_version" value="8.0.1.20211109_1610"/>
+    <additionalProperties xmi:id="_YZypxVSoEe6WYNcP8SL_fg" key="modified_date" value="2023-09-16T22:47:46.396+0700"/>
+  </TalendProperties:Property>
+  <TalendProperties:ItemState xmi:id="_YZxboVSoEe6WYNcP8SL_fg" path="MySQL/system"/>
+  <TalendProperties:SQLPatternItem xmi:id="_YZxbolSoEe6WYNcP8SL_fg" property="_YZxboFSoEe6WYNcP8SL_fg" state="_YZxboVSoEe6WYNcP8SL_fg" system="true" eltName="MySQL">
+    <content href="MySQLDropSourceTable_0.1.item#/"/>
+  </TalendProperties:SQLPatternItem>
+</xmi:XMI>

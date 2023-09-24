@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:TalendProperties="http://www.talend.org/properties">
+  <TalendProperties:Property xmi:id="_w3pqAVruEe60qbU1Pwu7xw" id="_w3pqAFruEe60qbU1Pwu7xw" label="db_to_db" purpose="Simple MySQL to Postgres Migration" version="0.1" statusCode="" item="_w3pqA1ruEe60qbU1Pwu7xw" displayName="db_to_db">
+    <author href="../../talend.project#_XAacAVSoEe6WYNcP8SL_fg"/>
+    <additionalProperties xmi:id="_w3pqBFruEe60qbU1Pwu7xw" key="created_product_fullname" value="Talend Open Studio for Big Data"/>
+    <additionalProperties xmi:id="_w3pqBVruEe60qbU1Pwu7xw" key="created_product_version" value="8.0.1.20211109_1610"/>
+    <additionalProperties xmi:id="_w3pqBlruEe60qbU1Pwu7xw" key="created_date" value="2023-09-24T22:26:42.336+0700"/>
+    <additionalProperties xmi:id="_w3pqB1ruEe60qbU1Pwu7xw" key="modified_product_fullname" value="Talend Open Studio for Big Data"/>
+    <additionalProperties xmi:id="_w3pqCFruEe60qbU1Pwu7xw" key="modified_product_version" value="8.0.1.20211109_1610"/>
+    <additionalProperties xmi:id="_w3pqCVruEe60qbU1Pwu7xw" key="modified_date" value="2023-09-24T23:14:05.214+0700"/>
+  </TalendProperties:Property>
+  <TalendProperties:ItemState xmi:id="_w3pqAlruEe60qbU1Pwu7xw" path="METRODATA" locked="true" lockDate="2023-09-24T22:29:21.163+0700">
+    <locker href="../../talend.project#_XAacAVSoEe6WYNcP8SL_fg"/>
+  </TalendProperties:ItemState>
+  <TalendProperties:ProcessItem xmi:id="_w3pqA1ruEe60qbU1Pwu7xw" property="_w3pqAVruEe60qbU1Pwu7xw" state="_w3pqAlruEe60qbU1Pwu7xw">
+    <process href="db_to_db_0.1.item#/"/>
+  </TalendProperties:ProcessItem>
+</xmi:XMI>

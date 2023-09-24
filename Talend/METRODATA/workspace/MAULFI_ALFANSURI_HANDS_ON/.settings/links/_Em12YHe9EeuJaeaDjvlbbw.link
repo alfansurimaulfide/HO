@@ -1,0 +1,26 @@
+{
+  "itemId" : "_Em12YHe9EeuJaeaDjvlbbw",
+  "contextList" : [ {
+    "contextName" : "Default",
+    "repoId" : "_7T5HwINWEeu9Bs_jTpTwqg",
+    "parameterList" : [ {
+      "id" : "_K3wFKlfoEeyLJ4_mHRBt1A",
+      "name" : "_rootDir"
+    }, {
+      "id" : "_K3wFIlfoEeyLJ4_mHRBt1A",
+      "name" : "dataFile"
+    }, {
+      "id" : "_K3wFIVfoEeyLJ4_mHRBt1A",
+      "name" : "inputDir"
+    }, {
+      "id" : "_K3wFJFfoEeyLJ4_mHRBt1A",
+      "name" : "outputDir"
+    }, {
+      "id" : "_K3wFJVfoEeyLJ4_mHRBt1A",
+      "name" : "tmpDir"
+    }, {
+      "id" : "_K3wFI1foEeyLJ4_mHRBt1A",
+      "name" : "tmpFile"
+    } ]
+  } ]
+}

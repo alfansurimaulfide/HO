@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010">
+  <TalendMetadata:GenericSchemaConnection xmi:id="_5r-PwFnEEe6MY7PCyWA0BA" name="repository.metadataGenericSchema" dataPackage="_5r-PwVnEEe6MY7PCyWA0BA"/>
+  <TalendMetadata:GenericPackage xmi:id="_5r-PwVnEEe6MY7PCyWA0BA" name="repository.metadataGenericSchema" dataManager="_5r-PwFnEEe6MY7PCyWA0BA">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_5r-PwlnEEe6MY7PCyWA0BA" id="_ddHNUFnEEe6MY7PCyWA0BA" label="chapter11_assignment_maulfi_schema">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_5r-Pw1nEEe6MY7PCyWA0BA" name="newColumn" label="newColumn" talendType="id_String"/>
+    </ownedElement>
+  </TalendMetadata:GenericPackage>
+</xmi:XMI>

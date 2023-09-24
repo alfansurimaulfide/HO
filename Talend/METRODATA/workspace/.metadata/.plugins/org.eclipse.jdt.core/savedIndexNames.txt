@@ -1,0 +1,13 @@
+INDEX VERSION 1.131+D:\Installer\Talend\TOS_BD-20211109_1610-V8.0.1\TOS_BD-20211109_1610-V8.0.1\workspace\.metadata\.plugins\org.eclipse.jdt.core
+1202199985.index
+258640950.index
+4266116559.index
+1329048499.index
+3263453487.index
+239781816.index
+1982287498.index
+73646880.index
+152930998.index
+2074942537.index
+4020743230.index
+989106532.index

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.relational="http:///orgomg/cwm/resource/relational.ecore" xmlns:relational="http://www.talend.org/cwm/resource/relational/2010">
+  <TalendMetadata:DatabaseConnection xmi:id="_3D04YFruEe60qbU1Pwu7xw" name="mysqlMetrodata" id="_SW6MgFglEe6UfoXFGaFefQ" label="mysqlMetrodata" dataPackage="_CtlRwFgmEe6UfoXFGaFefQ" DatabaseType="MySQL" DriverClass="com.mysql.cj.jdbc.Driver" URL="jdbc:mysql://:32769/Udemy_Talend?serverTimezone=Asia/Jakarta" dbVersionString="MYSQL_8" Port="32769" Username="root" Password="enc:system.encryption.key.v1:SwK6fCqG0xBhbmLD6KOQQLILhxZGEEPIQMyq8cmXlb8emnhP" ServerName="" DatasourceName="" FileFieldName="" SID="Udemy_Talend" SqlSynthax="" StringQuote="" NullChar="" DbmsId="mysql_id" ProductId="MYSQL" AdditionalParams="serverTimezone=Asia/Jakarta" StandardSQL="true" SQLMode="false" UiSchema="">
+    <taggedValue xmi:id="_ugnpMVglEe6UfoXFGaFefQ" tag="Is Conn Need Reload" value="false"/>
+    <taggedValue xmi:id="_ug-OgFglEe6UfoXFGaFefQ" tag="package filter" value=""/>
+    <taggedValue xmi:id="_uhEVIFglEe6UfoXFGaFefQ" tag="Status" value=""/>
+    <taggedValue xmi:id="_uhEVIVglEe6UfoXFGaFefQ" tag="Version" value="0.1"/>
+    <taggedValue xmi:id="_uhEVIlglEe6UfoXFGaFefQ" tag="Purpose" value=""/>
+    <taggedValue xmi:id="_uhEVI1glEe6UfoXFGaFefQ" tag="Description" value=""/>
+    <taggedValue xmi:id="_uhEVJFglEe6UfoXFGaFefQ" tag="Author" value=""/>
+    <taggedValue xmi:id="_uhEVJVglEe6UfoXFGaFefQ" tag="otherParameter"/>
+    <taggedValue xmi:id="_ukQzEFglEe6UfoXFGaFefQ" tag="DB ProductName" value="MySQL"/>
+    <taggedValue xmi:id="_ukQzEVglEe6UfoXFGaFefQ" tag="DB ProductVersion" value="8.1.0"/>
+    <taggedValue xmi:id="_ukQzElglEe6UfoXFGaFefQ" tag="DB IdentifierQuoteString" value="`"/>
+    <parameters xmi:id="_ugnpMlglEe6UfoXFGaFefQ" key="CONN_PARA_KEY_USERNAME" value="root"/>
+    <parameters xmi:id="_wvyPcFglEe6UfoXFGaFefQ" key="CONN_PARA_KEY_MAPRDB_TABLE_NS_MAPPING" value=""/>
+  </TalendMetadata:DatabaseConnection>
+  <orgomg.cwm.resource.relational:Catalog xmi:id="_CtlRwFgmEe6UfoXFGaFefQ" name="Udemy_Talend" dataManager="_3D04YFruEe60qbU1Pwu7xw">
+    <ownedElement xsi:type="relational:TdTable" xmi:id="_Xv0TcFg8Ee6HX7qEHYr7Yw" name="sales" id="_XvwpEFg8Ee6HX7qEHYr7Yw" label="sales" tableType="TABLE">
+      <taggedValue xmi:id="_Xv0TcVg8Ee6HX7qEHYr7Yw" tag="Comment" value=""/>
+      <feature xsi:type="relational:TdColumn" xmi:id="_Xv0Tclg8Ee6HX7qEHYr7Yw" name="Store" label="Store" length="40" sourceType="VARCHAR" talendType="id_String">
+        <taggedValue xmi:id="_Xv0Tc1g8Ee6HX7qEHYr7Yw" tag="Comment" value=""/>
+        <initialValue xsi:type="relational:TdExpression" xmi:id="_Xv0TdFg8Ee6HX7qEHYr7Yw" language="COLUMN_DEF"/>
+        <sqlDataType xmi:id="_Xv0TdVg8Ee6HX7qEHYr7Yw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12" nullable="columnNullable"/>
+      </feature>
+      <feature xsi:type="relational:TdColumn" xmi:id="_Xv0Tdlg8Ee6HX7qEHYr7Yw" name="Date" label="Date" length="19" sourceType="DATETIME" talendType="id_Date" pattern="&quot;dd-MM-yyyy&quot;">
+        <taggedValue xmi:id="_Xv0Td1g8Ee6HX7qEHYr7Yw" tag="Comment" value=""/>
+        <initialValue xsi:type="relational:TdExpression" xmi:id="_Xv0TeFg8Ee6HX7qEHYr7Yw" language="COLUMN_DEF"/>
+        <sqlDataType xmi:id="_Xv0TeVg8Ee6HX7qEHYr7Yw" name="DATETIME" numericPrecisionRadix="10" javaDataType="93" nullable="columnNullable"/>
+      </feature>
+      <feature xsi:type="relational:TdColumn" xmi:id="_Xv0Telg8Ee6HX7qEHYr7Yw" name="Sales" label="Sales" length="10" precision="3" sourceType="FLOAT" talendType="id_Float">
+        <taggedValue xmi:id="_Xv0Te1g8Ee6HX7qEHYr7Yw" tag="Comment" value=""/>
+        <initialValue xsi:type="relational:TdExpression" xmi:id="_Xv0TfFg8Ee6HX7qEHYr7Yw" language="COLUMN_DEF"/>
+        <sqlDataType xmi:id="_Xv0TfVg8Ee6HX7qEHYr7Yw" name="FLOAT" numericPrecision="3" numericPrecisionRadix="10" javaDataType="7" nullable="columnNullable"/>
+      </feature>
+    </ownedElement>
+  </orgomg.cwm.resource.relational:Catalog>
+</xmi:XMI>

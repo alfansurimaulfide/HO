@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:TalendProperties="http://www.talend.org/properties">
+  <TalendProperties:Property xmi:id="_YbmAnFSoEe6WYNcP8SL_fg" id="_YbmAm1SoEe6WYNcP8SL_fg" label="TeradataColumnList" version="0.1" item="_YbmAnlSoEe6WYNcP8SL_fg">
+    <author href="../../../talend.project#_XAacAVSoEe6WYNcP8SL_fg"/>
+    <additionalProperties xmi:id="_YbmAn1SoEe6WYNcP8SL_fg" key="created_product_fullname" value="Talend Open Studio for Big Data"/>
+    <additionalProperties xmi:id="_YbmAoFSoEe6WYNcP8SL_fg" key="created_product_version" value="8.0.1.20211109_1610"/>
+    <additionalProperties xmi:id="_YbmAoVSoEe6WYNcP8SL_fg" key="created_date" value="2023-09-16T22:47:46.585+0700"/>
+    <additionalProperties xmi:id="_YbmAolSoEe6WYNcP8SL_fg" key="modified_product_fullname" value="Talend Open Studio for Big Data"/>
+    <additionalProperties xmi:id="_YbmAo1SoEe6WYNcP8SL_fg" key="modified_product_version" value="8.0.1.20211109_1610"/>
+    <additionalProperties xmi:id="_YbmApFSoEe6WYNcP8SL_fg" key="modified_date" value="2023-09-16T22:47:46.585+0700"/>
+  </TalendProperties:Property>
+  <TalendProperties:ItemState xmi:id="_YbmAnVSoEe6WYNcP8SL_fg" path="Teradata/system"/>
+  <TalendProperties:SQLPatternItem xmi:id="_YbmAnlSoEe6WYNcP8SL_fg" property="_YbmAnFSoEe6WYNcP8SL_fg" state="_YbmAnVSoEe6WYNcP8SL_fg" system="true" eltName="Teradata">
+    <content href="TeradataColumnList_0.1.item#/"/>
+  </TalendProperties:SQLPatternItem>
+</xmi:XMI>

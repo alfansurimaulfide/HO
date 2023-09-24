@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:TalendProperties="http://www.talend.org/properties">
+  <TalendProperties:Property xmi:id="_ugnpM1glEe6UfoXFGaFefQ" id="_SW6MgFglEe6UfoXFGaFefQ" label="mysqlUdemy" version="0.1" statusCode="" item="_ugnpNVglEe6UfoXFGaFefQ" displayName="mysqlUdemy">
+    <author href="../../talend.project#_XAacAVSoEe6WYNcP8SL_fg"/>
+    <additionalProperties xmi:id="_ugwzIFglEe6UfoXFGaFefQ" key="created_product_fullname" value="Talend Open Studio for Big Data"/>
+    <additionalProperties xmi:id="_ugwzIVglEe6UfoXFGaFefQ" key="created_product_version" value="8.0.1.20211109_1610"/>
+    <additionalProperties xmi:id="_ugwzIlglEe6UfoXFGaFefQ" key="created_date" value="2023-09-21T09:22:35.346+0700"/>
+    <additionalProperties xmi:id="_ugwzI1glEe6UfoXFGaFefQ" key="modified_product_fullname" value="Talend Open Studio for Big Data"/>
+    <additionalProperties xmi:id="_ugwzJFglEe6UfoXFGaFefQ" key="modified_product_version" value="8.0.1.20211109_1610"/>
+    <additionalProperties xmi:id="_ugwzJVglEe6UfoXFGaFefQ" key="modified_date" value="2023-09-23T10:55:50.640+0700"/>
+  </TalendProperties:Property>
+  <TalendProperties:ItemState xmi:id="_ugnpNFglEe6UfoXFGaFefQ" path=""/>
+  <TalendProperties:DatabaseConnectionItem xmi:id="_ugnpNVglEe6UfoXFGaFefQ" property="_ugnpM1glEe6UfoXFGaFefQ" state="_ugnpNFglEe6UfoXFGaFefQ" typeName="MySQL">
+    <connection href="mysqlUdemy_0.1.item#_ugnpMFglEe6UfoXFGaFefQ"/>
+  </TalendProperties:DatabaseConnectionItem>
+</xmi:XMI>

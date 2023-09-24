@@ -1,0 +1,38 @@
+{
+  "itemId" : "_oNJGINgVEeufJIqxUrFuxA",
+  "contextList" : [ {
+    "contextName" : "default",
+    "repoId" : "_7T5HwINWEeu9Bs_jTpTwqg",
+    "parameterList" : [ {
+      "id" : "_K3wFIVfoEeyLJ4_mHRBt1A",
+      "name" : "inputDir"
+    }, {
+      "id" : "_K3wFIlfoEeyLJ4_mHRBt1A",
+      "name" : "dataFile"
+    }, {
+      "id" : "_K3wFI1foEeyLJ4_mHRBt1A",
+      "name" : "tmpFile"
+    }, {
+      "id" : "_K3wFJFfoEeyLJ4_mHRBt1A",
+      "name" : "outputDir"
+    }, {
+      "id" : "_K3wFJVfoEeyLJ4_mHRBt1A",
+      "name" : "tmpDir"
+    }, {
+      "id" : "_K3wFJlfoEeyLJ4_mHRBt1A",
+      "name" : "paramFile"
+    }, {
+      "id" : "_K3wFJ1foEeyLJ4_mHRBt1A",
+      "name" : "paramDir"
+    }, {
+      "id" : "_K3wFKFfoEeyLJ4_mHRBt1A",
+      "name" : "central"
+    }, {
+      "id" : "_K3wFKVfoEeyLJ4_mHRBt1A",
+      "name" : "logDir"
+    }, {
+      "id" : "_K3wFKlfoEeyLJ4_mHRBt1A",
+      "name" : "_rootDir"
+    } ]
+  } ]
+}
