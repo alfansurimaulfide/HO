@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010">
+  <TalendMetadata:GenericSchemaConnection xmi:id="__0a8kVr0Ee60qbU1Pwu7xw" name="repository.metadataGenericSchema" dataPackage="__0a8klr0Ee60qbU1Pwu7xw"/>
+  <TalendMetadata:GenericPackage xmi:id="__0a8klr0Ee60qbU1Pwu7xw" name="repository.metadataGenericSchema" dataManager="__0a8kVr0Ee60qbU1Pwu7xw">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="__0a8k1r0Ee60qbU1Pwu7xw" id="_ocNgAFr0Ee60qbU1Pwu7xw" label="db_to_db_mysql_metrodata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="__0a8lFr0Ee60qbU1Pwu7xw" name="id" label="id" length="8" talendType="id_Integer"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="__0a8llr0Ee60qbU1Pwu7xw" name="lastName" label="lastName" length="32" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_vouxoFtjEe68iro8OY5BVQ" name="state" label="state" length="20" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_yypv8FtjEe68iro8OY5BVQ" name="occupationCode" label="occupationCode" length="1" talendType="id_Integer"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_0sUAQFtjEe68iro8OY5BVQ" name="income_dollar" label="income_dollar" length="10" talendType="id_Integer"/>
+    </ownedElement>
+  </TalendMetadata:GenericPackage>
+</xmi:XMI>

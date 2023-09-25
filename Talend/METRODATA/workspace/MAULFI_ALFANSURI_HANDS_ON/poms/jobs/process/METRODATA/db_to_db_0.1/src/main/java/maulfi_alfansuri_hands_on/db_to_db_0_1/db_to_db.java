@@ -118,6 +118,12 @@ public class db_to_db implements TalendJob {
 
 		public void synchronizeContext() {
 
+			if (webHook_discord != null) {
+
+				this.setProperty("webHook_discord", webHook_discord.toString());
+
+			}
+
 		}
 
 		// if the stored or passed value is "<TALEND_NULL>" string, it mean null
@@ -129,6 +135,11 @@ public class db_to_db implements TalendJob {
 			return origin_value;
 		}
 
+		public String webHook_discord;
+
+		public String getWebHook_discord() {
+			return this.webHook_discord;
+		}
 	}
 
 	protected ContextProperties context = new ContextProperties(); // will be instanciated by MS.
@@ -411,7 +422,7 @@ public class db_to_db implements TalendJob {
 
 		status = "failure";
 
-		tDBCommit_1_onSubJobError(exception, errorComponent, globalMap);
+		tDBInput_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
 	public void tDBInput_2_error(Exception exception, String errorComponent,
@@ -434,7 +445,7 @@ public class db_to_db implements TalendJob {
 		tDBInput_2_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tDBOutput_3_error(Exception exception, String errorComponent,
+	public void tDBOutput_4_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -444,7 +455,7 @@ public class db_to_db implements TalendJob {
 		tDBInput_2_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tDBOutput_4_error(Exception exception, String errorComponent,
+	public void tDBOutput_3_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -474,14 +485,14 @@ public class db_to_db implements TalendJob {
 		tDBInput_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tAggregateRow_2_AGGOUT_error(Exception exception, String errorComponent,
+	public void tAggregateRow_1_AGGOUT_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
-		tAggregateRow_2_AGGIN_error(exception, errorComponent, globalMap);
+		tAggregateRow_1_AGGIN_error(exception, errorComponent, globalMap);
 
 	}
 
-	public void tAggregateRow_2_AGGIN_error(Exception exception, String errorComponent,
+	public void tAggregateRow_1_AGGIN_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -491,14 +502,14 @@ public class db_to_db implements TalendJob {
 		tDBInput_2_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tAggregateRow_1_AGGOUT_error(Exception exception, String errorComponent,
+	public void tAggregateRow_2_AGGOUT_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
-		tAggregateRow_1_AGGIN_error(exception, errorComponent, globalMap);
+		tAggregateRow_2_AGGIN_error(exception, errorComponent, globalMap);
 
 	}
 
-	public void tAggregateRow_1_AGGIN_error(Exception exception, String errorComponent,
+	public void tAggregateRow_2_AGGIN_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -565,14 +576,6 @@ public class db_to_db implements TalendJob {
 	}
 
 	public void tDBInput_1_onSubJobError(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
-				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
-
-	}
-
-	public void tDBCommit_1_onSubJobError(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
@@ -1137,7 +1140,7 @@ public class db_to_db implements TalendJob {
 				String dbUser_tDBConnection_1 = "root";
 
 				final String decryptedPassword_tDBConnection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:Lddn5Ta8vcoS5XxVmOQ2INbjp4ZlrMSVSws63eFnjtDFizfG");
+						"enc:routine.encryption.key.v1:JqTaVzzl+j+izX9a+Q343vjU7ITiv0amsFy70LVQwq5vyupN");
 				String dbPwd_tDBConnection_1 = decryptedPassword_tDBConnection_1;
 
 				java.sql.Connection conn_tDBConnection_1 = null;
@@ -1286,7 +1289,7 @@ public class db_to_db implements TalendJob {
 				String dbUser_tDBConnection_2 = "admin";
 
 				final String decryptedPassword_tDBConnection_2 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:rSTLJqSNNtoOSvmZlhTpJSJz1AAeHYIXvcdyFTax45hh14Iz");
+						"enc:routine.encryption.key.v1:BZ6fGKy22DzEqkYGaYGOtROJs5ChJQwxffkdYlhHjxpQK4+U");
 				String dbPwd_tDBConnection_2 = decryptedPassword_tDBConnection_2;
 
 				java.sql.Connection conn_tDBConnection_2 = null;
@@ -1440,6 +1443,12 @@ public class db_to_db implements TalendJob {
 			return this.income_dollar;
 		}
 
+		public java.util.Date load_date;
+
+		public java.util.Date getLoad_date() {
+			return this.load_date;
+		}
+
 		private Integer readInteger(ObjectInputStream dis) throws IOException {
 			Integer intReturn;
 			int length = 0;
@@ -1542,6 +1551,48 @@ public class db_to_db implements TalendJob {
 			}
 		}
 
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
 		public void readData(ObjectInputStream dis) {
 
 			synchronized (commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db) {
@@ -1559,6 +1610,8 @@ public class db_to_db implements TalendJob {
 					this.occupationCode = readInteger(dis);
 
 					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -1586,6 +1639,8 @@ public class db_to_db implements TalendJob {
 					this.occupationCode = readInteger(dis);
 
 					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -1619,6 +1674,10 @@ public class db_to_db implements TalendJob {
 
 				writeInteger(this.income_dollar, dos);
 
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -1648,6 +1707,10 @@ public class db_to_db implements TalendJob {
 
 				writeInteger(this.income_dollar, dos);
 
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -1664,6 +1727,7 @@ public class db_to_db implements TalendJob {
 			sb.append(",state=" + state);
 			sb.append(",occupationCode=" + String.valueOf(occupationCode));
 			sb.append(",income_dollar=" + String.valueOf(income_dollar));
+			sb.append(",load_date=" + String.valueOf(load_date));
 			sb.append("]");
 
 			return sb.toString();
@@ -1784,7 +1848,7 @@ public class db_to_db implements TalendJob {
 				String dbUser_tDBOutput_1 = "root";
 
 				final String decryptedPassword_tDBOutput_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:cS4kNUk4SFlg31DHAftxIMuUUANPwQWDKv+gyPBRtPCEpqZF");
+						"enc:routine.encryption.key.v1:IWEEfER5NtFjlAprRETyKg0lC8/hPcmL33yUvVFV0p33J2B8");
 
 				String dbPwd_tDBOutput_1 = decryptedPassword_tDBOutput_1;
 				java.lang.Class.forName(driverClass_tDBOutput_1);
@@ -1817,11 +1881,11 @@ public class db_to_db implements TalendJob {
 				}
 				try (java.sql.Statement stmtCreate_tDBOutput_1 = conn_tDBOutput_1.createStatement()) {
 					stmtCreate_tDBOutput_1.execute("CREATE TABLE `" + tableName_tDBOutput_1
-							+ "`(`id` INT(8)  ,`lastName` VARCHAR(32)  ,`state` VARCHAR(20)  ,`occupationCode` INT(1)  ,`income_dollar` INT(10)  )");
+							+ "`(`id` INT(10)  ,`lastName` VARCHAR(32)  ,`state` VARCHAR(20)  ,`occupationCode` INT(10)  ,`income_dollar` INT(10)  ,`load_date` DATE )");
 				}
 
 				String insert_tDBOutput_1 = "INSERT INTO `" + "person"
-						+ "` (`id`,`lastName`,`state`,`occupationCode`,`income_dollar`) VALUES (?,?,?,?,?)";
+						+ "` (`id`,`lastName`,`state`,`occupationCode`,`income_dollar`,`load_date`) VALUES (?,?,?,?,?,?)";
 				int batchSize_tDBOutput_1 = 100;
 				int batchSizeCounter_tDBOutput_1 = 0;
 
@@ -1873,7 +1937,13 @@ public class db_to_db implements TalendJob {
 
 					public Integer getRandomincome_dollar() {
 
-						return Numeric.random(1000000, 100000000);
+						return Numeric.sequence("s1", 10000000, 750);
+
+					}
+
+					public java.util.Date getRandomload_date() {
+
+						return TalendDate.getCurrentDate();
 
 					}
 				}
@@ -1885,6 +1955,7 @@ public class db_to_db implements TalendJob {
 					row1.state = randtRowGenerator_1.getRandomstate();
 					row1.occupationCode = randtRowGenerator_1.getRandomoccupationCode();
 					row1.income_dollar = randtRowGenerator_1.getRandomincome_dollar();
+					row1.load_date = randtRowGenerator_1.getRandomload_date();
 					nb_line_tRowGenerator_1++;
 
 					/**
@@ -1956,6 +2027,17 @@ public class db_to_db implements TalendJob {
 						pstmt_tDBOutput_1.setNull(5, java.sql.Types.INTEGER);
 					} else {
 						pstmt_tDBOutput_1.setInt(5, row1.income_dollar);
+					}
+
+					if (row1.load_date != null) {
+						date_tDBOutput_1 = row1.load_date.getTime();
+						if (date_tDBOutput_1 < year1_tDBOutput_1 || date_tDBOutput_1 >= year10000_tDBOutput_1) {
+							pstmt_tDBOutput_1.setString(6, "0000-00-00 00:00:00");
+						} else {
+							pstmt_tDBOutput_1.setTimestamp(6, new java.sql.Timestamp(date_tDBOutput_1));
+						}
+					} else {
+						pstmt_tDBOutput_1.setNull(6, java.sql.Types.DATE);
 					}
 
 					pstmt_tDBOutput_1.addBatch();
@@ -2224,7 +2306,7 @@ public class db_to_db implements TalendJob {
 		globalMap.put("tRowGenerator_1_SUBPROCESS_STATE", 1);
 	}
 
-	public static class row3Struct implements routines.system.IPersistableRow<row3Struct> {
+	public static class row5Struct implements routines.system.IPersistableRow<row5Struct> {
 		final static byte[] commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[0];
 		static byte[] commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[0];
 
@@ -2256,6 +2338,12 @@ public class db_to_db implements TalendJob {
 
 		public Integer getIncome_dollar() {
 			return this.income_dollar;
+		}
+
+		public java.util.Date load_date;
+
+		public java.util.Date getLoad_date() {
+			return this.load_date;
 		}
 
 		private Integer readInteger(ObjectInputStream dis) throws IOException {
@@ -2360,6 +2448,48 @@ public class db_to_db implements TalendJob {
 			}
 		}
 
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
 		public void readData(ObjectInputStream dis) {
 
 			synchronized (commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db) {
@@ -2377,6 +2507,8 @@ public class db_to_db implements TalendJob {
 					this.occupation = readString(dis);
 
 					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -2404,6 +2536,8 @@ public class db_to_db implements TalendJob {
 					this.occupation = readString(dis);
 
 					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -2437,6 +2571,10 @@ public class db_to_db implements TalendJob {
 
 				writeInteger(this.income_dollar, dos);
 
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -2466,6 +2604,10 @@ public class db_to_db implements TalendJob {
 
 				writeInteger(this.income_dollar, dos);
 
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -2482,6 +2624,364 @@ public class db_to_db implements TalendJob {
 			sb.append(",state=" + state);
 			sb.append(",occupation=" + occupation);
 			sb.append(",income_dollar=" + String.valueOf(income_dollar));
+			sb.append(",load_date=" + String.valueOf(load_date));
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row5Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class row3Struct implements routines.system.IPersistableRow<row3Struct> {
+		final static byte[] commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[0];
+		static byte[] commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[0];
+
+		public Integer id;
+
+		public Integer getId() {
+			return this.id;
+		}
+
+		public String lastName;
+
+		public String getLastName() {
+			return this.lastName;
+		}
+
+		public String state;
+
+		public String getState() {
+			return this.state;
+		}
+
+		public String occupation;
+
+		public String getOccupation() {
+			return this.occupation;
+		}
+
+		public Integer income_dollar;
+
+		public Integer getIncome_dollar() {
+			return this.income_dollar;
+		}
+
+		public java.util.Date load_date;
+
+		public java.util.Date getLoad_date() {
+			return this.load_date;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db.length) {
+					if (length < 1024 && commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db.length == 0) {
+						commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[1024];
+					} else {
+						commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db, 0, length);
+				strReturn = new String(commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = unmarshaller.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db.length) {
+					if (length < 1024 && commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db.length == 0) {
+						commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[1024];
+					} else {
+						commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[2 * length];
+					}
+				}
+				unmarshaller.readFully(commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db, 0, length);
+				strReturn = new String(commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (str == null) {
+				marshaller.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				marshaller.writeInt(byteArray.length);
+				marshaller.write(byteArray);
+			}
+		}
+
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db) {
+
+				try {
+
+					int length = 0;
+
+					this.id = readInteger(dis);
+
+					this.lastName = readString(dis);
+
+					this.state = readString(dis);
+
+					this.occupation = readString(dis);
+
+					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+			synchronized (commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db) {
+
+				try {
+
+					int length = 0;
+
+					this.id = readInteger(dis);
+
+					this.lastName = readString(dis);
+
+					this.state = readString(dis);
+
+					this.occupation = readString(dis);
+
+					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.id, dos);
+
+				// String
+
+				writeString(this.lastName, dos);
+
+				// String
+
+				writeString(this.state, dos);
+
+				// String
+
+				writeString(this.occupation, dos);
+
+				// Integer
+
+				writeInteger(this.income_dollar, dos);
+
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeData(org.jboss.marshalling.Marshaller dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.id, dos);
+
+				// String
+
+				writeString(this.lastName, dos);
+
+				// String
+
+				writeString(this.state, dos);
+
+				// String
+
+				writeString(this.occupation, dos);
+
+				// Integer
+
+				writeInteger(this.income_dollar, dos);
+
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("id=" + String.valueOf(id));
+			sb.append(",lastName=" + lastName);
+			sb.append(",state=" + state);
+			sb.append(",occupation=" + occupation);
+			sb.append(",income_dollar=" + String.valueOf(income_dollar));
+			sb.append(",load_date=" + String.valueOf(load_date));
 			sb.append("]");
 
 			return sb.toString();
@@ -2554,6 +3054,12 @@ public class db_to_db implements TalendJob {
 			return this.income_dollar;
 		}
 
+		public java.util.Date load_date;
+
+		public java.util.Date getLoad_date() {
+			return this.load_date;
+		}
+
 		private Integer readInteger(ObjectInputStream dis) throws IOException {
 			Integer intReturn;
 			int length = 0;
@@ -2656,6 +3162,48 @@ public class db_to_db implements TalendJob {
 			}
 		}
 
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
 		public void readData(ObjectInputStream dis) {
 
 			synchronized (commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db) {
@@ -2673,6 +3221,8 @@ public class db_to_db implements TalendJob {
 					this.occupation = readString(dis);
 
 					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -2700,6 +3250,8 @@ public class db_to_db implements TalendJob {
 					this.occupation = readString(dis);
 
 					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -2733,6 +3285,10 @@ public class db_to_db implements TalendJob {
 
 				writeInteger(this.income_dollar, dos);
 
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -2762,6 +3318,10 @@ public class db_to_db implements TalendJob {
 
 				writeInteger(this.income_dollar, dos);
 
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -2778,6 +3338,7 @@ public class db_to_db implements TalendJob {
 			sb.append(",state=" + state);
 			sb.append(",occupation=" + occupation);
 			sb.append(",income_dollar=" + String.valueOf(income_dollar));
+			sb.append(",load_date=" + String.valueOf(load_date));
 			sb.append("]");
 
 			return sb.toString();
@@ -2850,6 +3411,12 @@ public class db_to_db implements TalendJob {
 			return this.income_dollar;
 		}
 
+		public java.util.Date load_date;
+
+		public java.util.Date getLoad_date() {
+			return this.load_date;
+		}
+
 		private Integer readInteger(ObjectInputStream dis) throws IOException {
 			Integer intReturn;
 			int length = 0;
@@ -2952,6 +3519,48 @@ public class db_to_db implements TalendJob {
 			}
 		}
 
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
 		public void readData(ObjectInputStream dis) {
 
 			synchronized (commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db) {
@@ -2969,6 +3578,8 @@ public class db_to_db implements TalendJob {
 					this.occupationCode = readInteger(dis);
 
 					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -2996,6 +3607,8 @@ public class db_to_db implements TalendJob {
 					this.occupationCode = readInteger(dis);
 
 					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -3029,6 +3642,10 @@ public class db_to_db implements TalendJob {
 
 				writeInteger(this.income_dollar, dos);
 
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -3058,6 +3675,10 @@ public class db_to_db implements TalendJob {
 
 				writeInteger(this.income_dollar, dos);
 
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -3074,6 +3695,7 @@ public class db_to_db implements TalendJob {
 			sb.append(",state=" + state);
 			sb.append(",occupationCode=" + String.valueOf(occupationCode));
 			sb.append(",income_dollar=" + String.valueOf(income_dollar));
+			sb.append(",load_date=" + String.valueOf(load_date));
 			sb.append("]");
 
 			return sb.toString();
@@ -3146,6 +3768,12 @@ public class db_to_db implements TalendJob {
 			return this.income_dollar;
 		}
 
+		public java.util.Date load_date;
+
+		public java.util.Date getLoad_date() {
+			return this.load_date;
+		}
+
 		private Integer readInteger(ObjectInputStream dis) throws IOException {
 			Integer intReturn;
 			int length = 0;
@@ -3248,6 +3876,48 @@ public class db_to_db implements TalendJob {
 			}
 		}
 
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
 		public void readData(ObjectInputStream dis) {
 
 			synchronized (commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db) {
@@ -3265,6 +3935,8 @@ public class db_to_db implements TalendJob {
 					this.occupationCode = readInteger(dis);
 
 					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -3292,6 +3964,8 @@ public class db_to_db implements TalendJob {
 					this.occupationCode = readInteger(dis);
 
 					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -3325,6 +3999,10 @@ public class db_to_db implements TalendJob {
 
 				writeInteger(this.income_dollar, dos);
 
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -3354,6 +4032,10 @@ public class db_to_db implements TalendJob {
 
 				writeInteger(this.income_dollar, dos);
 
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -3370,6 +4052,7 @@ public class db_to_db implements TalendJob {
 			sb.append(",state=" + state);
 			sb.append(",occupationCode=" + String.valueOf(occupationCode));
 			sb.append(",income_dollar=" + String.valueOf(income_dollar));
+			sb.append(",load_date=" + String.valueOf(load_date));
 			sb.append("]");
 
 			return sb.toString();
@@ -3433,6 +4116,26 @@ public class db_to_db implements TalendJob {
 				personStruct person = new personStruct();
 				row2Struct row2 = new row2Struct();
 				row2Struct row3 = row2;
+				row5Struct row5 = new row5Struct();
+
+				/**
+				 * [tDBCommit_1 begin ] start
+				 */
+
+				ok_Hash.put("tDBCommit_1", false);
+				start_Hash.put("tDBCommit_1", System.currentTimeMillis());
+
+				currentComponent = "tDBCommit_1";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row5");
+				}
+
+				int tos_count_tDBCommit_1 = 0;
+
+				/**
+				 * [tDBCommit_1 begin ] stop
+				 */
 
 				/**
 				 * [tDBOutput_2 begin ] start
@@ -3482,7 +4185,7 @@ public class db_to_db implements TalendJob {
 				dbUser_tDBOutput_2 = "admin";
 
 				final String decryptedPassword_tDBOutput_2 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:juJbKzPVI5VDe+txJA/3dv5saCA0eelPHpjfAkviC9FWHaMW");
+						"enc:routine.encryption.key.v1:o6HHnVRu4P0nvwslLXj5PjOnDPxS/ek9B/lS20SHMfsbZq72");
 
 				String dbPwd_tDBOutput_2 = decryptedPassword_tDBOutput_2;
 
@@ -3531,10 +4234,10 @@ public class db_to_db implements TalendJob {
 				}
 				try (java.sql.Statement stmtCreate_tDBOutput_2 = conn_tDBOutput_2.createStatement()) {
 					stmtCreate_tDBOutput_2.execute("CREATE TABLE \"" + tableName_tDBOutput_2
-							+ "\"(\"id\" INT4 ,\"lastName\" VARCHAR(32)  ,\"state\" VARCHAR(20)  ,\"occupation\" VARCHAR(20)  ,\"income_dollar\" INT4 )");
+							+ "\"(\"id\" INT4 ,\"lastName\" VARCHAR(32)  ,\"state\" VARCHAR(20)  ,\"occupation\" VARCHAR(20)  ,\"income_dollar\" INT4 ,\"load_date\" DATE )");
 				}
 				String insert_tDBOutput_2 = "INSERT INTO \"" + tableName_tDBOutput_2
-						+ "\" (\"id\",\"lastName\",\"state\",\"occupation\",\"income_dollar\") VALUES (?,?,?,?,?)";
+						+ "\" (\"id\",\"lastName\",\"state\",\"occupation\",\"income_dollar\",\"load_date\") VALUES (?,?,?,?,?,?)";
 
 				java.sql.PreparedStatement pstmt_tDBOutput_2 = conn_tDBOutput_2.prepareStatement(insert_tDBOutput_2);
 				resourceMap.put("pstmt_tDBOutput_2", pstmt_tDBOutput_2);
@@ -3635,7 +4338,7 @@ public class db_to_db implements TalendJob {
 				String dbUser_tDBInput_1 = "root";
 
 				final String decryptedPassword_tDBInput_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:HjngkkSzS2UpWiZIeHDCntY5bxs6KV6u6WRFWWKU3rmm6ope");
+						"enc:routine.encryption.key.v1:6u/bFwk2n1Z9v+pV/HH8CfI798KQzVzBw0qaVwPb/YII22z0");
 
 				String dbPwd_tDBInput_1 = decryptedPassword_tDBInput_1;
 
@@ -3652,7 +4355,7 @@ public class db_to_db implements TalendJob {
 				java.sql.Statement stmt_tDBInput_1 = conn_tDBInput_1.createStatement();
 
 				String dbquery_tDBInput_1 = "SELECT \n  `person`.`id`, \n  `person`.`lastName`, \n  `person`.`state`, \n  `person`.`occupationCode`, \n  `person`.`income"
-						+ "_dollar`\nFROM `person`";
+						+ "_dollar`, \n  `person`.`load_date`\nFROM `person`";
 
 				globalMap.put("tDBInput_1_QUERY", dbquery_tDBInput_1);
 				java.sql.ResultSet rs_tDBInput_1 = null;
@@ -3706,6 +4409,22 @@ public class db_to_db implements TalendJob {
 								person.income_dollar = null;
 							}
 						}
+						if (colQtyInRs_tDBInput_1 < 6) {
+							person.load_date = null;
+						} else {
+
+							if (rs_tDBInput_1.getString(6) != null) {
+								String dateString_tDBInput_1 = rs_tDBInput_1.getString(6);
+								if (!("0000-00-00").equals(dateString_tDBInput_1)
+										&& !("0000-00-00 00:00:00").equals(dateString_tDBInput_1)) {
+									person.load_date = rs_tDBInput_1.getTimestamp(6);
+								} else {
+									person.load_date = (java.util.Date) year0_tDBInput_1.clone();
+								}
+							} else {
+								person.load_date = null;
+							}
+						}
 
 						/**
 						 * [tDBInput_1 begin ] stop
@@ -3754,6 +4473,7 @@ public class db_to_db implements TalendJob {
 						row2.lastName = person.lastName;
 						row2.state = person.state;
 						row2.income_dollar = person.income_dollar;
+						row2.load_date = person.load_date;
 
 						if (util_tJoin_1.isJoined(person)) {
 							row2.occupation = util_tJoin_1.lookupValue.occupation;
@@ -3838,6 +4558,14 @@ public class db_to_db implements TalendJob {
 
 							} //
 
+							strBuffer_tLogRow_3.append("|");
+
+							if (row2.load_date != null) { //
+
+								strBuffer_tLogRow_3.append(FormatterUtils.format_Date(row2.load_date, "dd-MM-yyyy"));
+
+							} //
+
 							if (globalMap.get("tLogRow_CONSOLE") != null) {
 								consoleOut_tLogRow_3 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
 							} else {
@@ -3886,6 +4614,7 @@ public class db_to_db implements TalendJob {
 								);
 							}
 
+							row5 = null;
 							whetherReject_tDBOutput_2 = false;
 							if (row3.id == null) {
 								pstmt_tDBOutput_2.setNull(1, java.sql.Types.INTEGER);
@@ -3917,12 +4646,25 @@ public class db_to_db implements TalendJob {
 								pstmt_tDBOutput_2.setInt(5, row3.income_dollar);
 							}
 
+							if (row3.load_date != null) {
+								pstmt_tDBOutput_2.setTimestamp(6, new java.sql.Timestamp(row3.load_date.getTime()));
+							} else {
+								pstmt_tDBOutput_2.setNull(6, java.sql.Types.TIMESTAMP);
+							}
+
 							pstmt_tDBOutput_2.addBatch();
 							nb_line_tDBOutput_2++;
 
 							batchSizeCounter_tDBOutput_2++;
 
 							if (!whetherReject_tDBOutput_2) {
+								row5 = new row5Struct();
+								row5.id = row3.id;
+								row5.lastName = row3.lastName;
+								row5.state = row3.state;
+								row5.occupation = row3.occupation;
+								row5.income_dollar = row3.income_dollar;
+								row5.load_date = row3.load_date;
 							}
 							if ((batchSize_tDBOutput_2 > 0)
 									&& (batchSize_tDBOutput_2 <= batchSizeCounter_tDBOutput_2)) {
@@ -4038,6 +4780,73 @@ public class db_to_db implements TalendJob {
 							/**
 							 * [tDBOutput_2 process_data_begin ] stop
 							 */
+// Start of branch "row5"
+							if (row5 != null) {
+
+								/**
+								 * [tDBCommit_1 main ] start
+								 */
+
+								currentComponent = "tDBCommit_1";
+
+								if (execStat) {
+									runStat.updateStatOnConnection(iterateId, 1, 1
+
+											, "row5"
+
+									);
+								}
+
+								java.sql.Connection conn_tDBCommit_1 = (java.sql.Connection) globalMap
+										.get("conn_tDBConnection_2");
+								if (conn_tDBCommit_1 != null && !conn_tDBCommit_1.isClosed()) {
+
+									try {
+
+										conn_tDBCommit_1.commit();
+
+									} finally {
+
+										conn_tDBCommit_1.close();
+
+										if ("com.mysql.cj.jdbc.Driver"
+												.equals((String) globalMap.get("driverClass_tDBConnection_2"))
+												&& routines.system.BundleUtils.inOSGi()) {
+											Class.forName("com.mysql.cj.jdbc.AbandonedConnectionCleanupThread")
+													.getMethod("checkedShutdown").invoke(null, (Object[]) null);
+										}
+
+									}
+
+								}
+
+								tos_count_tDBCommit_1++;
+
+								/**
+								 * [tDBCommit_1 main ] stop
+								 */
+
+								/**
+								 * [tDBCommit_1 process_data_begin ] start
+								 */
+
+								currentComponent = "tDBCommit_1";
+
+								/**
+								 * [tDBCommit_1 process_data_begin ] stop
+								 */
+
+								/**
+								 * [tDBCommit_1 process_data_end ] start
+								 */
+
+								currentComponent = "tDBCommit_1";
+
+								/**
+								 * [tDBCommit_1 process_data_end ] stop
+								 */
+
+							} // End of branch "row5"
 
 							/**
 							 * [tDBOutput_2 process_data_end ] start
@@ -4241,13 +5050,30 @@ public class db_to_db implements TalendJob {
 				ok_Hash.put("tDBOutput_2", true);
 				end_Hash.put("tDBOutput_2", System.currentTimeMillis());
 
-				if (execStat) {
-					runStat.updateStatOnConnection("OnComponentOk6", 0, "ok");
-				}
-				tDBCommit_1Process(globalMap);
-
 				/**
 				 * [tDBOutput_2 end ] stop
+				 */
+
+				/**
+				 * [tDBCommit_1 end ] start
+				 */
+
+				currentComponent = "tDBCommit_1";
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row5");
+				}
+
+				ok_Hash.put("tDBCommit_1", true);
+				end_Hash.put("tDBCommit_1", System.currentTimeMillis());
+
+				if (execStat) {
+					runStat.updateStatOnConnection("OnComponentOk5", 0, "ok");
+				}
+				tDBInput_2Process(globalMap);
+
+				/**
+				 * [tDBCommit_1 end ] stop
 				 */
 
 			} // end the resume
@@ -4332,138 +5158,6 @@ public class db_to_db implements TalendJob {
 				 * [tDBOutput_2 finally ] stop
 				 */
 
-			} catch (java.lang.Exception e) {
-				// ignore
-			} catch (java.lang.Error error) {
-				// ignore
-			}
-			resourceMap = null;
-		}
-
-		globalMap.put("tDBInput_1_SUBPROCESS_STATE", 1);
-	}
-
-	public void tDBCommit_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tDBCommit_1_SUBPROCESS_STATE", 0);
-
-		final boolean execStat = this.execStat;
-
-		String iterateId = "";
-
-		String currentComponent = "";
-		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
-
-		try {
-			// TDI-39566 avoid throwing an useless Exception
-			boolean resumeIt = true;
-			if (globalResumeTicket == false && resumeEntryMethodName != null) {
-				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-				resumeIt = resumeEntryMethodName.equals(currentMethodName);
-			}
-			if (resumeIt || globalResumeTicket) { // start the resume
-				globalResumeTicket = true;
-
-				/**
-				 * [tDBCommit_1 begin ] start
-				 */
-
-				ok_Hash.put("tDBCommit_1", false);
-				start_Hash.put("tDBCommit_1", System.currentTimeMillis());
-
-				currentComponent = "tDBCommit_1";
-
-				int tos_count_tDBCommit_1 = 0;
-
-				/**
-				 * [tDBCommit_1 begin ] stop
-				 */
-
-				/**
-				 * [tDBCommit_1 main ] start
-				 */
-
-				currentComponent = "tDBCommit_1";
-
-				java.sql.Connection conn_tDBCommit_1 = (java.sql.Connection) globalMap.get("conn_tDBConnection_2");
-				if (conn_tDBCommit_1 != null && !conn_tDBCommit_1.isClosed()) {
-
-					try {
-
-						conn_tDBCommit_1.commit();
-
-					} finally {
-
-						conn_tDBCommit_1.close();
-
-						if ("com.mysql.cj.jdbc.Driver".equals((String) globalMap.get("driverClass_tDBConnection_2"))
-								&& routines.system.BundleUtils.inOSGi()) {
-							Class.forName("com.mysql.cj.jdbc.AbandonedConnectionCleanupThread")
-									.getMethod("checkedShutdown").invoke(null, (Object[]) null);
-						}
-
-					}
-
-				}
-
-				tos_count_tDBCommit_1++;
-
-				/**
-				 * [tDBCommit_1 main ] stop
-				 */
-
-				/**
-				 * [tDBCommit_1 process_data_begin ] start
-				 */
-
-				currentComponent = "tDBCommit_1";
-
-				/**
-				 * [tDBCommit_1 process_data_begin ] stop
-				 */
-
-				/**
-				 * [tDBCommit_1 process_data_end ] start
-				 */
-
-				currentComponent = "tDBCommit_1";
-
-				/**
-				 * [tDBCommit_1 process_data_end ] stop
-				 */
-
-				/**
-				 * [tDBCommit_1 end ] start
-				 */
-
-				currentComponent = "tDBCommit_1";
-
-				ok_Hash.put("tDBCommit_1", true);
-				end_Hash.put("tDBCommit_1", System.currentTimeMillis());
-
-				if (execStat) {
-					runStat.updateStatOnConnection("OnComponentOk5", 0, "ok");
-				}
-				tDBInput_2Process(globalMap);
-
-				/**
-				 * [tDBCommit_1 end ] stop
-				 */
-			} // end the resume
-
-		} catch (java.lang.Exception e) {
-
-			TalendException te = new TalendException(e, currentComponent, globalMap);
-
-			throw te;
-		} catch (java.lang.Error error) {
-
-			runStat.stopThreadStat();
-
-			throw error;
-		} finally {
-
-			try {
-
 				/**
 				 * [tDBCommit_1 finally ] start
 				 */
@@ -4473,6 +5167,7 @@ public class db_to_db implements TalendJob {
 				/**
 				 * [tDBCommit_1 finally ] stop
 				 */
+
 			} catch (java.lang.Exception e) {
 				// ignore
 			} catch (java.lang.Error error) {
@@ -4481,486 +5176,7 @@ public class db_to_db implements TalendJob {
 			resourceMap = null;
 		}
 
-		globalMap.put("tDBCommit_1_SUBPROCESS_STATE", 1);
-	}
-
-	public static class row9Struct implements routines.system.IPersistableRow<row9Struct> {
-		final static byte[] commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[0];
-		static byte[] commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[0];
-
-		public String state;
-
-		public String getState() {
-			return this.state;
-		}
-
-		public Integer income_dollar;
-
-		public Integer getIncome_dollar() {
-			return this.income_dollar;
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db.length) {
-					if (length < 1024 && commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db.length == 0) {
-						commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[1024];
-					} else {
-						commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db, 0, length);
-				strReturn = new String(commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db.length) {
-					if (length < 1024 && commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db.length == 0) {
-						commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[1024];
-					} else {
-						commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[2 * length];
-					}
-				}
-				unmarshaller.readFully(commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db, 0, length);
-				strReturn = new String(commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db) {
-
-				try {
-
-					int length = 0;
-
-					this.state = readString(dis);
-
-					this.income_dollar = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void readData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db) {
-
-				try {
-
-					int length = 0;
-
-					this.state = readString(dis);
-
-					this.income_dollar = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// String
-
-				writeString(this.state, dos);
-
-				// Integer
-
-				writeInteger(this.income_dollar, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeData(org.jboss.marshalling.Marshaller dos) {
-			try {
-
-				// String
-
-				writeString(this.state, dos);
-
-				// Integer
-
-				writeInteger(this.income_dollar, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("state=" + state);
-			sb.append(",income_dollar=" + String.valueOf(income_dollar));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(row9Struct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public static class OnRowsEndStructtAggregateRow_1
-			implements routines.system.IPersistableRow<OnRowsEndStructtAggregateRow_1> {
-		final static byte[] commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[0];
-		static byte[] commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[0];
-
-		public String state;
-
-		public String getState() {
-			return this.state;
-		}
-
-		public Integer income_dollar;
-
-		public Integer getIncome_dollar() {
-			return this.income_dollar;
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db.length) {
-					if (length < 1024 && commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db.length == 0) {
-						commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[1024];
-					} else {
-						commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db, 0, length);
-				strReturn = new String(commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db.length) {
-					if (length < 1024 && commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db.length == 0) {
-						commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[1024];
-					} else {
-						commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[2 * length];
-					}
-				}
-				unmarshaller.readFully(commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db, 0, length);
-				strReturn = new String(commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db) {
-
-				try {
-
-					int length = 0;
-
-					this.state = readString(dis);
-
-					this.income_dollar = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void readData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db) {
-
-				try {
-
-					int length = 0;
-
-					this.state = readString(dis);
-
-					this.income_dollar = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// String
-
-				writeString(this.state, dos);
-
-				// Integer
-
-				writeInteger(this.income_dollar, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeData(org.jboss.marshalling.Marshaller dos) {
-			try {
-
-				// String
-
-				writeString(this.state, dos);
-
-				// Integer
-
-				writeInteger(this.income_dollar, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("state=" + state);
-			sb.append(",income_dollar=" + String.valueOf(income_dollar));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(OnRowsEndStructtAggregateRow_1 other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
+		globalMap.put("tDBInput_1_SUBPROCESS_STATE", 1);
 	}
 
 	public static class row8Struct implements routines.system.IPersistableRow<row8Struct> {
@@ -4979,6 +5195,12 @@ public class db_to_db implements TalendJob {
 			return this.income_dollar;
 		}
 
+		public java.util.Date load_date;
+
+		public java.util.Date getLoad_date() {
+			return this.load_date;
+		}
+
 		private String readString(ObjectInputStream dis) throws IOException {
 			String strReturn = null;
 			int length = 0;
@@ -5081,6 +5303,48 @@ public class db_to_db implements TalendJob {
 			}
 		}
 
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
 		public void readData(ObjectInputStream dis) {
 
 			synchronized (commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db) {
@@ -5092,6 +5356,8 @@ public class db_to_db implements TalendJob {
 					this.occupation = readString(dis);
 
 					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -5114,6 +5380,8 @@ public class db_to_db implements TalendJob {
 
 					this.income_dollar = readInteger(dis);
 
+					this.load_date = readDate(dis);
+
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 
@@ -5134,6 +5402,10 @@ public class db_to_db implements TalendJob {
 
 				writeInteger(this.income_dollar, dos);
 
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -5151,6 +5423,10 @@ public class db_to_db implements TalendJob {
 
 				writeInteger(this.income_dollar, dos);
 
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -5164,6 +5440,7 @@ public class db_to_db implements TalendJob {
 			sb.append("[");
 			sb.append("occupation=" + occupation);
 			sb.append(",income_dollar=" + String.valueOf(income_dollar));
+			sb.append(",load_date=" + String.valueOf(load_date));
 			sb.append("]");
 
 			return sb.toString();
@@ -5219,6 +5496,12 @@ public class db_to_db implements TalendJob {
 			return this.income_dollar;
 		}
 
+		public java.util.Date load_date;
+
+		public java.util.Date getLoad_date() {
+			return this.load_date;
+		}
+
 		private String readString(ObjectInputStream dis) throws IOException {
 			String strReturn = null;
 			int length = 0;
@@ -5321,6 +5604,48 @@ public class db_to_db implements TalendJob {
 			}
 		}
 
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
 		public void readData(ObjectInputStream dis) {
 
 			synchronized (commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db) {
@@ -5332,6 +5657,8 @@ public class db_to_db implements TalendJob {
 					this.occupation = readString(dis);
 
 					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -5354,6 +5681,8 @@ public class db_to_db implements TalendJob {
 
 					this.income_dollar = readInteger(dis);
 
+					this.load_date = readDate(dis);
+
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 
@@ -5374,6 +5703,10 @@ public class db_to_db implements TalendJob {
 
 				writeInteger(this.income_dollar, dos);
 
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -5391,6 +5724,10 @@ public class db_to_db implements TalendJob {
 
 				writeInteger(this.income_dollar, dos);
 
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -5404,6 +5741,7 @@ public class db_to_db implements TalendJob {
 			sb.append("[");
 			sb.append("occupation=" + occupation);
 			sb.append(",income_dollar=" + String.valueOf(income_dollar));
+			sb.append(",load_date=" + String.valueOf(load_date));
 			sb.append("]");
 
 			return sb.toString();
@@ -5442,32 +5780,14 @@ public class db_to_db implements TalendJob {
 
 	}
 
-	public static class row6Struct implements routines.system.IPersistableRow<row6Struct> {
+	public static class row9Struct implements routines.system.IPersistableRow<row9Struct> {
 		final static byte[] commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[0];
 		static byte[] commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[0];
-
-		public Integer id;
-
-		public Integer getId() {
-			return this.id;
-		}
-
-		public String lastName;
-
-		public String getLastName() {
-			return this.lastName;
-		}
 
 		public String state;
 
 		public String getState() {
 			return this.state;
-		}
-
-		public String occupation;
-
-		public String getOccupation() {
-			return this.occupation;
 		}
 
 		public Integer income_dollar;
@@ -5476,46 +5796,10 @@ public class db_to_db implements TalendJob {
 			return this.income_dollar;
 		}
 
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
+		public java.util.Date load_date;
 
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
+		public java.util.Date getLoad_date() {
+			return this.load_date;
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -5578,6 +5862,90 @@ public class db_to_db implements TalendJob {
 			}
 		}
 
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
 		public void readData(ObjectInputStream dis) {
 
 			synchronized (commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db) {
@@ -5586,15 +5954,11 @@ public class db_to_db implements TalendJob {
 
 					int length = 0;
 
-					this.id = readInteger(dis);
-
-					this.lastName = readString(dis);
-
 					this.state = readString(dis);
 
-					this.occupation = readString(dis);
-
 					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -5613,15 +5977,11 @@ public class db_to_db implements TalendJob {
 
 					int length = 0;
 
-					this.id = readInteger(dis);
-
-					this.lastName = readString(dis);
-
 					this.state = readString(dis);
 
-					this.occupation = readString(dis);
-
 					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -5635,25 +5995,17 @@ public class db_to_db implements TalendJob {
 		public void writeData(ObjectOutputStream dos) {
 			try {
 
-				// Integer
-
-				writeInteger(this.id, dos);
-
-				// String
-
-				writeString(this.lastName, dos);
-
 				// String
 
 				writeString(this.state, dos);
 
-				// String
-
-				writeString(this.occupation, dos);
-
 				// Integer
 
 				writeInteger(this.income_dollar, dos);
+
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -5664,25 +6016,17 @@ public class db_to_db implements TalendJob {
 		public void writeData(org.jboss.marshalling.Marshaller dos) {
 			try {
 
-				// Integer
-
-				writeInteger(this.id, dos);
-
-				// String
-
-				writeString(this.lastName, dos);
-
 				// String
 
 				writeString(this.state, dos);
 
-				// String
-
-				writeString(this.occupation, dos);
-
 				// Integer
 
 				writeInteger(this.income_dollar, dos);
+
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -5695,11 +6039,9 @@ public class db_to_db implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("id=" + String.valueOf(id));
-			sb.append(",lastName=" + lastName);
-			sb.append(",state=" + state);
-			sb.append(",occupation=" + occupation);
+			sb.append("state=" + state);
 			sb.append(",income_dollar=" + String.valueOf(income_dollar));
+			sb.append(",load_date=" + String.valueOf(load_date));
 			sb.append("]");
 
 			return sb.toString();
@@ -5708,7 +6050,308 @@ public class db_to_db implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(row6Struct other) {
+		public int compareTo(row9Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class OnRowsEndStructtAggregateRow_1
+			implements routines.system.IPersistableRow<OnRowsEndStructtAggregateRow_1> {
+		final static byte[] commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[0];
+		static byte[] commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[0];
+
+		public String state;
+
+		public String getState() {
+			return this.state;
+		}
+
+		public Integer income_dollar;
+
+		public Integer getIncome_dollar() {
+			return this.income_dollar;
+		}
+
+		public java.util.Date load_date;
+
+		public java.util.Date getLoad_date() {
+			return this.load_date;
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db.length) {
+					if (length < 1024 && commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db.length == 0) {
+						commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[1024];
+					} else {
+						commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db, 0, length);
+				strReturn = new String(commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = unmarshaller.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db.length) {
+					if (length < 1024 && commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db.length == 0) {
+						commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[1024];
+					} else {
+						commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[2 * length];
+					}
+				}
+				unmarshaller.readFully(commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db, 0, length);
+				strReturn = new String(commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (str == null) {
+				marshaller.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				marshaller.writeInt(byteArray.length);
+				marshaller.write(byteArray);
+			}
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db) {
+
+				try {
+
+					int length = 0;
+
+					this.state = readString(dis);
+
+					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+			synchronized (commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db) {
+
+				try {
+
+					int length = 0;
+
+					this.state = readString(dis);
+
+					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.state, dos);
+
+				// Integer
+
+				writeInteger(this.income_dollar, dos);
+
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeData(org.jboss.marshalling.Marshaller dos) {
+			try {
+
+				// String
+
+				writeString(this.state, dos);
+
+				// Integer
+
+				writeInteger(this.income_dollar, dos);
+
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("state=" + state);
+			sb.append(",income_dollar=" + String.valueOf(income_dollar));
+			sb.append(",load_date=" + String.valueOf(load_date));
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(OnRowsEndStructtAggregateRow_1 other) {
 
 			int returnValue = -1;
 
@@ -5772,6 +6415,12 @@ public class db_to_db implements TalendJob {
 			return this.income_dollar;
 		}
 
+		public java.util.Date load_date;
+
+		public java.util.Date getLoad_date() {
+			return this.load_date;
+		}
+
 		private Integer readInteger(ObjectInputStream dis) throws IOException {
 			Integer intReturn;
 			int length = 0;
@@ -5874,6 +6523,48 @@ public class db_to_db implements TalendJob {
 			}
 		}
 
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
 		public void readData(ObjectInputStream dis) {
 
 			synchronized (commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db) {
@@ -5891,6 +6582,8 @@ public class db_to_db implements TalendJob {
 					this.occupation = readString(dis);
 
 					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -5918,6 +6611,8 @@ public class db_to_db implements TalendJob {
 					this.occupation = readString(dis);
 
 					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -5951,6 +6646,10 @@ public class db_to_db implements TalendJob {
 
 				writeInteger(this.income_dollar, dos);
 
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -5980,6 +6679,10 @@ public class db_to_db implements TalendJob {
 
 				writeInteger(this.income_dollar, dos);
 
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -5996,6 +6699,7 @@ public class db_to_db implements TalendJob {
 			sb.append(",state=" + state);
 			sb.append(",occupation=" + occupation);
 			sb.append(",income_dollar=" + String.valueOf(income_dollar));
+			sb.append(",load_date=" + String.valueOf(load_date));
 			sb.append("]");
 
 			return sb.toString();
@@ -6005,6 +6709,363 @@ public class db_to_db implements TalendJob {
 		 * Compare keys
 		 */
 		public int compareTo(row7Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class row6Struct implements routines.system.IPersistableRow<row6Struct> {
+		final static byte[] commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[0];
+		static byte[] commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[0];
+
+		public Integer id;
+
+		public Integer getId() {
+			return this.id;
+		}
+
+		public String lastName;
+
+		public String getLastName() {
+			return this.lastName;
+		}
+
+		public String state;
+
+		public String getState() {
+			return this.state;
+		}
+
+		public String occupation;
+
+		public String getOccupation() {
+			return this.occupation;
+		}
+
+		public Integer income_dollar;
+
+		public Integer getIncome_dollar() {
+			return this.income_dollar;
+		}
+
+		public java.util.Date load_date;
+
+		public java.util.Date getLoad_date() {
+			return this.load_date;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db.length) {
+					if (length < 1024 && commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db.length == 0) {
+						commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[1024];
+					} else {
+						commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db, 0, length);
+				strReturn = new String(commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = unmarshaller.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db.length) {
+					if (length < 1024 && commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db.length == 0) {
+						commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[1024];
+					} else {
+						commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db = new byte[2 * length];
+					}
+				}
+				unmarshaller.readFully(commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db, 0, length);
+				strReturn = new String(commonByteArray_MAULFI_ALFANSURI_HANDS_ON_db_to_db, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (str == null) {
+				marshaller.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				marshaller.writeInt(byteArray.length);
+				marshaller.write(byteArray);
+			}
+		}
+
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db) {
+
+				try {
+
+					int length = 0;
+
+					this.id = readInteger(dis);
+
+					this.lastName = readString(dis);
+
+					this.state = readString(dis);
+
+					this.occupation = readString(dis);
+
+					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+			synchronized (commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db) {
+
+				try {
+
+					int length = 0;
+
+					this.id = readInteger(dis);
+
+					this.lastName = readString(dis);
+
+					this.state = readString(dis);
+
+					this.occupation = readString(dis);
+
+					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.id, dos);
+
+				// String
+
+				writeString(this.lastName, dos);
+
+				// String
+
+				writeString(this.state, dos);
+
+				// String
+
+				writeString(this.occupation, dos);
+
+				// Integer
+
+				writeInteger(this.income_dollar, dos);
+
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeData(org.jboss.marshalling.Marshaller dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.id, dos);
+
+				// String
+
+				writeString(this.lastName, dos);
+
+				// String
+
+				writeString(this.state, dos);
+
+				// String
+
+				writeString(this.occupation, dos);
+
+				// Integer
+
+				writeInteger(this.income_dollar, dos);
+
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("id=" + String.valueOf(id));
+			sb.append(",lastName=" + lastName);
+			sb.append(",state=" + state);
+			sb.append(",occupation=" + occupation);
+			sb.append(",income_dollar=" + String.valueOf(income_dollar));
+			sb.append(",load_date=" + String.valueOf(load_date));
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row6Struct other) {
 
 			int returnValue = -1;
 
@@ -6068,6 +7129,12 @@ public class db_to_db implements TalendJob {
 			return this.income_dollar;
 		}
 
+		public java.util.Date load_date;
+
+		public java.util.Date getLoad_date() {
+			return this.load_date;
+		}
+
 		private Integer readInteger(ObjectInputStream dis) throws IOException {
 			Integer intReturn;
 			int length = 0;
@@ -6170,6 +7237,48 @@ public class db_to_db implements TalendJob {
 			}
 		}
 
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
 		public void readData(ObjectInputStream dis) {
 
 			synchronized (commonByteArrayLock_MAULFI_ALFANSURI_HANDS_ON_db_to_db) {
@@ -6187,6 +7296,8 @@ public class db_to_db implements TalendJob {
 					this.occupation = readString(dis);
 
 					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -6214,6 +7325,8 @@ public class db_to_db implements TalendJob {
 					this.occupation = readString(dis);
 
 					this.income_dollar = readInteger(dis);
+
+					this.load_date = readDate(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -6247,6 +7360,10 @@ public class db_to_db implements TalendJob {
 
 				writeInteger(this.income_dollar, dos);
 
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -6276,6 +7393,10 @@ public class db_to_db implements TalendJob {
 
 				writeInteger(this.income_dollar, dos);
 
+				// java.util.Date
+
+				writeDate(this.load_date, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -6292,6 +7413,7 @@ public class db_to_db implements TalendJob {
 			sb.append(",state=" + state);
 			sb.append(",occupation=" + occupation);
 			sb.append(",income_dollar=" + String.valueOf(income_dollar));
+			sb.append(",load_date=" + String.valueOf(load_date));
 			sb.append("]");
 
 			return sb.toString();
@@ -6352,226 +7474,10 @@ public class db_to_db implements TalendJob {
 				globalResumeTicket = true;
 
 				row4Struct row4 = new row4Struct();
-				row6Struct row6 = new row6Struct();
-				row8Struct row8 = new row8Struct();
 				row7Struct row7 = new row7Struct();
 				row9Struct row9 = new row9Struct();
-
-				/**
-				 * [tAggregateRow_2_AGGOUT begin ] start
-				 */
-
-				ok_Hash.put("tAggregateRow_2_AGGOUT", false);
-				start_Hash.put("tAggregateRow_2_AGGOUT", System.currentTimeMillis());
-
-				currentVirtualComponent = "tAggregateRow_2";
-
-				currentComponent = "tAggregateRow_2_AGGOUT";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row6");
-				}
-
-				int tos_count_tAggregateRow_2_AGGOUT = 0;
-
-// ------------ Seems it is not used
-
-				java.util.Map hashAggreg_tAggregateRow_2 = new java.util.HashMap();
-
-// ------------
-
-				class UtilClass_tAggregateRow_2 { // G_OutBegin_AggR_144
-
-					public double sd(Double[] data) {
-						final int n = data.length;
-						if (n < 2) {
-							return Double.NaN;
-						}
-						double d1 = 0d;
-						double d2 = 0d;
-
-						for (int i = 0; i < data.length; i++) {
-							d1 += (data[i] * data[i]);
-							d2 += data[i];
-						}
-
-						return Math.sqrt((n * d1 - d2 * d2) / n / (n - 1));
-					}
-
-					public void checkedIADD(byte a, byte b, boolean checkTypeOverFlow, boolean checkUlp) {
-						byte r = (byte) (a + b);
-						if (checkTypeOverFlow && ((a ^ r) & (b ^ r)) < 0) {
-							throw new RuntimeException(buildOverflowMessage(String.valueOf(a), String.valueOf(b),
-									"'short/Short'", "'byte/Byte'"));
-						}
-					}
-
-					public void checkedIADD(short a, short b, boolean checkTypeOverFlow, boolean checkUlp) {
-						short r = (short) (a + b);
-						if (checkTypeOverFlow && ((a ^ r) & (b ^ r)) < 0) {
-							throw new RuntimeException(buildOverflowMessage(String.valueOf(a), String.valueOf(b),
-									"'int/Integer'", "'short/Short'"));
-						}
-					}
-
-					public void checkedIADD(int a, int b, boolean checkTypeOverFlow, boolean checkUlp) {
-						int r = a + b;
-						if (checkTypeOverFlow && ((a ^ r) & (b ^ r)) < 0) {
-							throw new RuntimeException(buildOverflowMessage(String.valueOf(a), String.valueOf(b),
-									"'long/Long'", "'int/Integer'"));
-						}
-					}
-
-					public void checkedIADD(long a, long b, boolean checkTypeOverFlow, boolean checkUlp) {
-						long r = a + b;
-						if (checkTypeOverFlow && ((a ^ r) & (b ^ r)) < 0) {
-							throw new RuntimeException(buildOverflowMessage(String.valueOf(a), String.valueOf(b),
-									"'BigDecimal'", "'long/Long'"));
-						}
-					}
-
-					public void checkedIADD(float a, float b, boolean checkTypeOverFlow, boolean checkUlp) {
-
-						if (checkUlp) {
-							float minAddedValue = Math.ulp(a);
-							if (minAddedValue > Math.abs(b)) {
-								throw new RuntimeException(buildPrecisionMessage(String.valueOf(a), String.valueOf(b),
-										"'double' or 'BigDecimal'", "'float/Float'"));
-							}
-						}
-
-						if (checkTypeOverFlow && ((double) a + (double) b > (double) Float.MAX_VALUE)
-								|| ((double) a + (double) b < (double) -Float.MAX_VALUE)) {
-							throw new RuntimeException(buildOverflowMessage(String.valueOf(a), String.valueOf(b),
-									"'double' or 'BigDecimal'", "'float/Float'"));
-						}
-					}
-
-					public void checkedIADD(double a, double b, boolean checkTypeOverFlow, boolean checkUlp) {
-
-						if (checkUlp) {
-							double minAddedValue = Math.ulp(a);
-							if (minAddedValue > Math.abs(b)) {
-								throw new RuntimeException(buildPrecisionMessage(String.valueOf(a), String.valueOf(a),
-										"'BigDecimal'", "'double/Double'"));
-							}
-						}
-
-						if (checkTypeOverFlow && (a + b > (double) Double.MAX_VALUE) || (a + b < -Double.MAX_VALUE)) {
-							throw new RuntimeException(buildOverflowMessage(String.valueOf(a), String.valueOf(b),
-									"'BigDecimal'", "'double/Double'"));
-						}
-					}
-
-					public void checkedIADD(double a, byte b, boolean checkTypeOverFlow, boolean checkUlp) {
-
-						if (checkTypeOverFlow && (a + b > (double) Double.MAX_VALUE) || (a + b < -Double.MAX_VALUE)) {
-							throw new RuntimeException(buildOverflowMessage(String.valueOf(a), String.valueOf(b),
-									"'BigDecimal'", "'double/Double'"));
-						}
-					}
-
-					public void checkedIADD(double a, short b, boolean checkTypeOverFlow, boolean checkUlp) {
-
-						if (checkTypeOverFlow && (a + b > (double) Double.MAX_VALUE) || (a + b < -Double.MAX_VALUE)) {
-							throw new RuntimeException(buildOverflowMessage(String.valueOf(a), String.valueOf(b),
-									"'BigDecimal'", "'double/Double'"));
-						}
-					}
-
-					public void checkedIADD(double a, int b, boolean checkTypeOverFlow, boolean checkUlp) {
-
-						if (checkTypeOverFlow && (a + b > (double) Double.MAX_VALUE) || (a + b < -Double.MAX_VALUE)) {
-							throw new RuntimeException(buildOverflowMessage(String.valueOf(a), String.valueOf(b),
-									"'BigDecimal'", "'double/Double'"));
-						}
-					}
-
-					public void checkedIADD(double a, float b, boolean checkTypeOverFlow, boolean checkUlp) {
-
-						if (checkUlp) {
-							double minAddedValue = Math.ulp(a);
-							if (minAddedValue > Math.abs(b)) {
-								throw new RuntimeException(buildPrecisionMessage(String.valueOf(a), String.valueOf(a),
-										"'BigDecimal'", "'double/Double'"));
-							}
-						}
-
-						if (checkTypeOverFlow && (a + b > (double) Double.MAX_VALUE) || (a + b < -Double.MAX_VALUE)) {
-							throw new RuntimeException(buildOverflowMessage(String.valueOf(a), String.valueOf(b),
-									"'BigDecimal'", "'double/Double'"));
-						}
-					}
-
-					private String buildOverflowMessage(String a, String b, String advicedTypes, String originalType) {
-						return "Type overflow when adding " + b + " to " + a
-								+ ", to resolve this problem, increase the precision by using " + advicedTypes
-								+ " type in place of " + originalType + ".";
-					}
-
-					private String buildPrecisionMessage(String a, String b, String advicedTypes, String originalType) {
-						return "The double precision is unsufficient to add the value " + b + " to " + a
-								+ ", to resolve this problem, increase the precision by using " + advicedTypes
-								+ " type in place of " + originalType + ".";
-					}
-
-				} // G_OutBegin_AggR_144
-
-				UtilClass_tAggregateRow_2 utilClass_tAggregateRow_2 = new UtilClass_tAggregateRow_2();
-
-				class AggOperationStruct_tAggregateRow_2 { // G_OutBegin_AggR_100
-
-					private static final int DEFAULT_HASHCODE = 1;
-					private static final int PRIME = 31;
-					private int hashCode = DEFAULT_HASHCODE;
-					public boolean hashCodeDirty = true;
-
-					String occupation;
-					Double income_dollar_sum;
-					int income_dollar_count = 0;
-
-					@Override
-					public int hashCode() {
-						if (this.hashCodeDirty) {
-							final int prime = PRIME;
-							int result = DEFAULT_HASHCODE;
-
-							result = prime * result + ((this.occupation == null) ? 0 : this.occupation.hashCode());
-
-							this.hashCode = result;
-							this.hashCodeDirty = false;
-						}
-						return this.hashCode;
-					}
-
-					@Override
-					public boolean equals(Object obj) {
-						if (this == obj)
-							return true;
-						if (obj == null)
-							return false;
-						if (getClass() != obj.getClass())
-							return false;
-						final AggOperationStruct_tAggregateRow_2 other = (AggOperationStruct_tAggregateRow_2) obj;
-
-						if (this.occupation == null) {
-							if (other.occupation != null)
-								return false;
-						} else if (!this.occupation.equals(other.occupation))
-							return false;
-
-						return true;
-					}
-
-				} // G_OutBegin_AggR_100
-
-				AggOperationStruct_tAggregateRow_2 operation_result_tAggregateRow_2 = null;
-				AggOperationStruct_tAggregateRow_2 operation_finder_tAggregateRow_2 = new AggOperationStruct_tAggregateRow_2();
-				java.util.Map<AggOperationStruct_tAggregateRow_2, AggOperationStruct_tAggregateRow_2> hash_tAggregateRow_2 = new java.util.HashMap<AggOperationStruct_tAggregateRow_2, AggOperationStruct_tAggregateRow_2>();
-
-				/**
-				 * [tAggregateRow_2_AGGOUT begin ] stop
-				 */
+				row6Struct row6 = new row6Struct();
+				row8Struct row8 = new row8Struct();
 
 				/**
 				 * [tAggregateRow_1_AGGOUT begin ] start
@@ -6743,7 +7649,9 @@ public class db_to_db implements TalendJob {
 					public boolean hashCodeDirty = true;
 
 					String state;
-					Integer income_dollar_sum;
+					java.util.Date load_date;
+					Double income_dollar_sum;
+					int income_dollar_count = 0;
 
 					@Override
 					public int hashCode() {
@@ -6752,6 +7660,8 @@ public class db_to_db implements TalendJob {
 							int result = DEFAULT_HASHCODE;
 
 							result = prime * result + ((this.state == null) ? 0 : this.state.hashCode());
+
+							result = prime * result + ((this.load_date == null) ? 0 : this.load_date.hashCode());
 
 							this.hashCode = result;
 							this.hashCodeDirty = false;
@@ -6775,6 +7685,12 @@ public class db_to_db implements TalendJob {
 						} else if (!this.state.equals(other.state))
 							return false;
 
+						if (this.load_date == null) {
+							if (other.load_date != null)
+								return false;
+						} else if (!this.load_date.equals(other.load_date))
+							return false;
+
 						return true;
 					}
 
@@ -6786,6 +7702,231 @@ public class db_to_db implements TalendJob {
 
 				/**
 				 * [tAggregateRow_1_AGGOUT begin ] stop
+				 */
+
+				/**
+				 * [tAggregateRow_2_AGGOUT begin ] start
+				 */
+
+				ok_Hash.put("tAggregateRow_2_AGGOUT", false);
+				start_Hash.put("tAggregateRow_2_AGGOUT", System.currentTimeMillis());
+
+				currentVirtualComponent = "tAggregateRow_2";
+
+				currentComponent = "tAggregateRow_2_AGGOUT";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row6");
+				}
+
+				int tos_count_tAggregateRow_2_AGGOUT = 0;
+
+// ------------ Seems it is not used
+
+				java.util.Map hashAggreg_tAggregateRow_2 = new java.util.HashMap();
+
+// ------------
+
+				class UtilClass_tAggregateRow_2 { // G_OutBegin_AggR_144
+
+					public double sd(Double[] data) {
+						final int n = data.length;
+						if (n < 2) {
+							return Double.NaN;
+						}
+						double d1 = 0d;
+						double d2 = 0d;
+
+						for (int i = 0; i < data.length; i++) {
+							d1 += (data[i] * data[i]);
+							d2 += data[i];
+						}
+
+						return Math.sqrt((n * d1 - d2 * d2) / n / (n - 1));
+					}
+
+					public void checkedIADD(byte a, byte b, boolean checkTypeOverFlow, boolean checkUlp) {
+						byte r = (byte) (a + b);
+						if (checkTypeOverFlow && ((a ^ r) & (b ^ r)) < 0) {
+							throw new RuntimeException(buildOverflowMessage(String.valueOf(a), String.valueOf(b),
+									"'short/Short'", "'byte/Byte'"));
+						}
+					}
+
+					public void checkedIADD(short a, short b, boolean checkTypeOverFlow, boolean checkUlp) {
+						short r = (short) (a + b);
+						if (checkTypeOverFlow && ((a ^ r) & (b ^ r)) < 0) {
+							throw new RuntimeException(buildOverflowMessage(String.valueOf(a), String.valueOf(b),
+									"'int/Integer'", "'short/Short'"));
+						}
+					}
+
+					public void checkedIADD(int a, int b, boolean checkTypeOverFlow, boolean checkUlp) {
+						int r = a + b;
+						if (checkTypeOverFlow && ((a ^ r) & (b ^ r)) < 0) {
+							throw new RuntimeException(buildOverflowMessage(String.valueOf(a), String.valueOf(b),
+									"'long/Long'", "'int/Integer'"));
+						}
+					}
+
+					public void checkedIADD(long a, long b, boolean checkTypeOverFlow, boolean checkUlp) {
+						long r = a + b;
+						if (checkTypeOverFlow && ((a ^ r) & (b ^ r)) < 0) {
+							throw new RuntimeException(buildOverflowMessage(String.valueOf(a), String.valueOf(b),
+									"'BigDecimal'", "'long/Long'"));
+						}
+					}
+
+					public void checkedIADD(float a, float b, boolean checkTypeOverFlow, boolean checkUlp) {
+
+						if (checkUlp) {
+							float minAddedValue = Math.ulp(a);
+							if (minAddedValue > Math.abs(b)) {
+								throw new RuntimeException(buildPrecisionMessage(String.valueOf(a), String.valueOf(b),
+										"'double' or 'BigDecimal'", "'float/Float'"));
+							}
+						}
+
+						if (checkTypeOverFlow && ((double) a + (double) b > (double) Float.MAX_VALUE)
+								|| ((double) a + (double) b < (double) -Float.MAX_VALUE)) {
+							throw new RuntimeException(buildOverflowMessage(String.valueOf(a), String.valueOf(b),
+									"'double' or 'BigDecimal'", "'float/Float'"));
+						}
+					}
+
+					public void checkedIADD(double a, double b, boolean checkTypeOverFlow, boolean checkUlp) {
+
+						if (checkUlp) {
+							double minAddedValue = Math.ulp(a);
+							if (minAddedValue > Math.abs(b)) {
+								throw new RuntimeException(buildPrecisionMessage(String.valueOf(a), String.valueOf(a),
+										"'BigDecimal'", "'double/Double'"));
+							}
+						}
+
+						if (checkTypeOverFlow && (a + b > (double) Double.MAX_VALUE) || (a + b < -Double.MAX_VALUE)) {
+							throw new RuntimeException(buildOverflowMessage(String.valueOf(a), String.valueOf(b),
+									"'BigDecimal'", "'double/Double'"));
+						}
+					}
+
+					public void checkedIADD(double a, byte b, boolean checkTypeOverFlow, boolean checkUlp) {
+
+						if (checkTypeOverFlow && (a + b > (double) Double.MAX_VALUE) || (a + b < -Double.MAX_VALUE)) {
+							throw new RuntimeException(buildOverflowMessage(String.valueOf(a), String.valueOf(b),
+									"'BigDecimal'", "'double/Double'"));
+						}
+					}
+
+					public void checkedIADD(double a, short b, boolean checkTypeOverFlow, boolean checkUlp) {
+
+						if (checkTypeOverFlow && (a + b > (double) Double.MAX_VALUE) || (a + b < -Double.MAX_VALUE)) {
+							throw new RuntimeException(buildOverflowMessage(String.valueOf(a), String.valueOf(b),
+									"'BigDecimal'", "'double/Double'"));
+						}
+					}
+
+					public void checkedIADD(double a, int b, boolean checkTypeOverFlow, boolean checkUlp) {
+
+						if (checkTypeOverFlow && (a + b > (double) Double.MAX_VALUE) || (a + b < -Double.MAX_VALUE)) {
+							throw new RuntimeException(buildOverflowMessage(String.valueOf(a), String.valueOf(b),
+									"'BigDecimal'", "'double/Double'"));
+						}
+					}
+
+					public void checkedIADD(double a, float b, boolean checkTypeOverFlow, boolean checkUlp) {
+
+						if (checkUlp) {
+							double minAddedValue = Math.ulp(a);
+							if (minAddedValue > Math.abs(b)) {
+								throw new RuntimeException(buildPrecisionMessage(String.valueOf(a), String.valueOf(a),
+										"'BigDecimal'", "'double/Double'"));
+							}
+						}
+
+						if (checkTypeOverFlow && (a + b > (double) Double.MAX_VALUE) || (a + b < -Double.MAX_VALUE)) {
+							throw new RuntimeException(buildOverflowMessage(String.valueOf(a), String.valueOf(b),
+									"'BigDecimal'", "'double/Double'"));
+						}
+					}
+
+					private String buildOverflowMessage(String a, String b, String advicedTypes, String originalType) {
+						return "Type overflow when adding " + b + " to " + a
+								+ ", to resolve this problem, increase the precision by using " + advicedTypes
+								+ " type in place of " + originalType + ".";
+					}
+
+					private String buildPrecisionMessage(String a, String b, String advicedTypes, String originalType) {
+						return "The double precision is unsufficient to add the value " + b + " to " + a
+								+ ", to resolve this problem, increase the precision by using " + advicedTypes
+								+ " type in place of " + originalType + ".";
+					}
+
+				} // G_OutBegin_AggR_144
+
+				UtilClass_tAggregateRow_2 utilClass_tAggregateRow_2 = new UtilClass_tAggregateRow_2();
+
+				class AggOperationStruct_tAggregateRow_2 { // G_OutBegin_AggR_100
+
+					private static final int DEFAULT_HASHCODE = 1;
+					private static final int PRIME = 31;
+					private int hashCode = DEFAULT_HASHCODE;
+					public boolean hashCodeDirty = true;
+
+					String occupation;
+					java.util.Date load_date;
+					Double income_dollar_sum;
+					int income_dollar_count = 0;
+
+					@Override
+					public int hashCode() {
+						if (this.hashCodeDirty) {
+							final int prime = PRIME;
+							int result = DEFAULT_HASHCODE;
+
+							result = prime * result + ((this.occupation == null) ? 0 : this.occupation.hashCode());
+
+							result = prime * result + ((this.load_date == null) ? 0 : this.load_date.hashCode());
+
+							this.hashCode = result;
+							this.hashCodeDirty = false;
+						}
+						return this.hashCode;
+					}
+
+					@Override
+					public boolean equals(Object obj) {
+						if (this == obj)
+							return true;
+						if (obj == null)
+							return false;
+						if (getClass() != obj.getClass())
+							return false;
+						final AggOperationStruct_tAggregateRow_2 other = (AggOperationStruct_tAggregateRow_2) obj;
+
+						if (this.occupation == null) {
+							if (other.occupation != null)
+								return false;
+						} else if (!this.occupation.equals(other.occupation))
+							return false;
+
+						if (this.load_date == null) {
+							if (other.load_date != null)
+								return false;
+						} else if (!this.load_date.equals(other.load_date))
+							return false;
+
+						return true;
+					}
+
+				} // G_OutBegin_AggR_100
+
+				AggOperationStruct_tAggregateRow_2 operation_result_tAggregateRow_2 = null;
+				AggOperationStruct_tAggregateRow_2 operation_finder_tAggregateRow_2 = new AggOperationStruct_tAggregateRow_2();
+				java.util.Map<AggOperationStruct_tAggregateRow_2, AggOperationStruct_tAggregateRow_2> hash_tAggregateRow_2 = new java.util.HashMap<AggOperationStruct_tAggregateRow_2, AggOperationStruct_tAggregateRow_2>();
+
+				/**
+				 * [tAggregateRow_2_AGGOUT begin ] stop
 				 */
 
 				/**
@@ -6825,7 +7966,7 @@ public class db_to_db implements TalendJob {
 				String dbUser_tDBInput_2 = "admin";
 
 				final String decryptedPassword_tDBInput_2 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:4OD3DPSZKiHEhx7nE3j1XKuDB7ifX7EkNR7hKxhBSCrQOddI");
+						"enc:routine.encryption.key.v1:6si/v1s0GALoNzHNrCAWSGoWaaX++k0mizGmIh6Sb4aiqqTF");
 
 				String dbPwd_tDBInput_2 = decryptedPassword_tDBInput_2;
 
@@ -6839,7 +7980,8 @@ public class db_to_db implements TalendJob {
 				java.sql.Statement stmt_tDBInput_2 = conn_tDBInput_2.createStatement();
 
 				String dbquery_tDBInput_2 = "SELECT \n  \"person_enriched\".\"id\", \n  \"person_enriched\".\"lastName\", \n  \"person_enriched\".\"state\", \n  \"perso"
-						+ "n_enriched\".\"occupation\", \n  \"person_enriched\".\"income_dollar\"\nFROM \"person_enriched\"";
+						+ "n_enriched\".\"occupation\", \n  \"person_enriched\".\"income_dollar\", \n  \"person_enriched\".\"load_date\"\nFROM \"perso"
+						+ "n_enriched\"";
 
 				globalMap.put("tDBInput_2_QUERY", dbquery_tDBInput_2);
 				java.sql.ResultSet rs_tDBInput_2 = null;
@@ -6890,6 +8032,12 @@ public class db_to_db implements TalendJob {
 								row4.income_dollar = null;
 							}
 						}
+						if (colQtyInRs_tDBInput_2 < 6) {
+							row4.load_date = null;
+						} else {
+
+							row4.load_date = routines.system.JDBCUtil.getDate(rs_tDBInput_2, 6);
+						}
 
 						/**
 						 * [tDBInput_2 begin ] stop
@@ -6931,13 +8079,6 @@ public class db_to_db implements TalendJob {
 							);
 						}
 
-						row6 = new row6Struct();
-
-						row6.id = row4.id;
-						row6.lastName = row4.lastName;
-						row6.state = row4.state;
-						row6.occupation = row4.occupation;
-						row6.income_dollar = row4.income_dollar;
 						row7 = new row7Struct();
 
 						row7.id = row4.id;
@@ -6945,6 +8086,15 @@ public class db_to_db implements TalendJob {
 						row7.state = row4.state;
 						row7.occupation = row4.occupation;
 						row7.income_dollar = row4.income_dollar;
+						row7.load_date = row4.load_date;
+						row6 = new row6Struct();
+
+						row6.id = row4.id;
+						row6.lastName = row4.lastName;
+						row6.state = row4.state;
+						row6.occupation = row4.occupation;
+						row6.income_dollar = row4.income_dollar;
+						row6.load_date = row4.load_date;
 
 						tos_count_tReplicate_1++;
 
@@ -6960,6 +8110,80 @@ public class db_to_db implements TalendJob {
 
 						/**
 						 * [tReplicate_1 process_data_begin ] stop
+						 */
+
+						/**
+						 * [tAggregateRow_1_AGGOUT main ] start
+						 */
+
+						currentVirtualComponent = "tAggregateRow_1";
+
+						currentComponent = "tAggregateRow_1_AGGOUT";
+
+						if (execStat) {
+							runStat.updateStatOnConnection(iterateId, 1, 1
+
+									, "row7"
+
+							);
+						}
+
+						operation_finder_tAggregateRow_1.state = row7.state;
+						operation_finder_tAggregateRow_1.load_date = row7.load_date;
+
+						operation_finder_tAggregateRow_1.hashCodeDirty = true;
+
+						operation_result_tAggregateRow_1 = hash_tAggregateRow_1.get(operation_finder_tAggregateRow_1);
+
+						if (operation_result_tAggregateRow_1 == null) { // G_OutMain_AggR_001
+
+							operation_result_tAggregateRow_1 = new AggOperationStruct_tAggregateRow_1();
+
+							operation_result_tAggregateRow_1.state = operation_finder_tAggregateRow_1.state;
+							operation_result_tAggregateRow_1.load_date = operation_finder_tAggregateRow_1.load_date;
+
+							hash_tAggregateRow_1.put(operation_result_tAggregateRow_1,
+									operation_result_tAggregateRow_1);
+
+						} // G_OutMain_AggR_001
+
+						operation_result_tAggregateRow_1.income_dollar_count++;
+
+						if (operation_result_tAggregateRow_1.income_dollar_sum == null) {
+							operation_result_tAggregateRow_1.income_dollar_sum = (double) 0;
+						}
+
+						if (row7.income_dollar != null)
+							operation_result_tAggregateRow_1.income_dollar_sum += row7.income_dollar;
+
+						tos_count_tAggregateRow_1_AGGOUT++;
+
+						/**
+						 * [tAggregateRow_1_AGGOUT main ] stop
+						 */
+
+						/**
+						 * [tAggregateRow_1_AGGOUT process_data_begin ] start
+						 */
+
+						currentVirtualComponent = "tAggregateRow_1";
+
+						currentComponent = "tAggregateRow_1_AGGOUT";
+
+						/**
+						 * [tAggregateRow_1_AGGOUT process_data_begin ] stop
+						 */
+
+						/**
+						 * [tAggregateRow_1_AGGOUT process_data_end ] start
+						 */
+
+						currentVirtualComponent = "tAggregateRow_1";
+
+						currentComponent = "tAggregateRow_1_AGGOUT";
+
+						/**
+						 * [tAggregateRow_1_AGGOUT process_data_end ] stop
 						 */
 
 						/**
@@ -6979,6 +8203,7 @@ public class db_to_db implements TalendJob {
 						}
 
 						operation_finder_tAggregateRow_2.occupation = row6.occupation;
+						operation_finder_tAggregateRow_2.load_date = row6.load_date;
 
 						operation_finder_tAggregateRow_2.hashCodeDirty = true;
 
@@ -6989,6 +8214,7 @@ public class db_to_db implements TalendJob {
 							operation_result_tAggregateRow_2 = new AggOperationStruct_tAggregateRow_2();
 
 							operation_result_tAggregateRow_2.occupation = operation_finder_tAggregateRow_2.occupation;
+							operation_result_tAggregateRow_2.load_date = operation_finder_tAggregateRow_2.load_date;
 
 							hash_tAggregateRow_2.put(operation_result_tAggregateRow_2,
 									operation_result_tAggregateRow_2);
@@ -7032,76 +8258,6 @@ public class db_to_db implements TalendJob {
 
 						/**
 						 * [tAggregateRow_2_AGGOUT process_data_end ] stop
-						 */
-
-						/**
-						 * [tAggregateRow_1_AGGOUT main ] start
-						 */
-
-						currentVirtualComponent = "tAggregateRow_1";
-
-						currentComponent = "tAggregateRow_1_AGGOUT";
-
-						if (execStat) {
-							runStat.updateStatOnConnection(iterateId, 1, 1
-
-									, "row7"
-
-							);
-						}
-
-						operation_finder_tAggregateRow_1.state = row7.state;
-
-						operation_finder_tAggregateRow_1.hashCodeDirty = true;
-
-						operation_result_tAggregateRow_1 = hash_tAggregateRow_1.get(operation_finder_tAggregateRow_1);
-
-						if (operation_result_tAggregateRow_1 == null) { // G_OutMain_AggR_001
-
-							operation_result_tAggregateRow_1 = new AggOperationStruct_tAggregateRow_1();
-
-							operation_result_tAggregateRow_1.state = operation_finder_tAggregateRow_1.state;
-
-							hash_tAggregateRow_1.put(operation_result_tAggregateRow_1,
-									operation_result_tAggregateRow_1);
-
-						} // G_OutMain_AggR_001
-
-						if (operation_result_tAggregateRow_1.income_dollar_sum == null) {
-							operation_result_tAggregateRow_1.income_dollar_sum = (int) 0;
-						}
-
-						if (row7.income_dollar != null)
-							operation_result_tAggregateRow_1.income_dollar_sum += row7.income_dollar;
-
-						tos_count_tAggregateRow_1_AGGOUT++;
-
-						/**
-						 * [tAggregateRow_1_AGGOUT main ] stop
-						 */
-
-						/**
-						 * [tAggregateRow_1_AGGOUT process_data_begin ] start
-						 */
-
-						currentVirtualComponent = "tAggregateRow_1";
-
-						currentComponent = "tAggregateRow_1_AGGOUT";
-
-						/**
-						 * [tAggregateRow_1_AGGOUT process_data_begin ] stop
-						 */
-
-						/**
-						 * [tAggregateRow_1_AGGOUT process_data_end ] start
-						 */
-
-						currentVirtualComponent = "tAggregateRow_1";
-
-						currentComponent = "tAggregateRow_1_AGGOUT";
-
-						/**
-						 * [tAggregateRow_1_AGGOUT process_data_end ] stop
 						 */
 
 						/**
@@ -7180,464 +8336,6 @@ public class db_to_db implements TalendJob {
 				 */
 
 				/**
-				 * [tAggregateRow_2_AGGOUT end ] start
-				 */
-
-				currentVirtualComponent = "tAggregateRow_2";
-
-				currentComponent = "tAggregateRow_2_AGGOUT";
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row6");
-				}
-
-				ok_Hash.put("tAggregateRow_2_AGGOUT", true);
-				end_Hash.put("tAggregateRow_2_AGGOUT", System.currentTimeMillis());
-
-				/**
-				 * [tAggregateRow_2_AGGOUT end ] stop
-				 */
-
-				/**
-				 * [tDBOutput_3 begin ] start
-				 */
-
-				ok_Hash.put("tDBOutput_3", false);
-				start_Hash.put("tDBOutput_3", System.currentTimeMillis());
-
-				currentComponent = "tDBOutput_3";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row8");
-				}
-
-				int tos_count_tDBOutput_3 = 0;
-
-				String dbschema_tDBOutput_3 = null;
-				dbschema_tDBOutput_3 = "";
-
-				String tableName_tDBOutput_3 = null;
-				if (dbschema_tDBOutput_3 == null || dbschema_tDBOutput_3.trim().length() == 0) {
-					tableName_tDBOutput_3 = ("income_avg_occupation");
-				} else {
-					tableName_tDBOutput_3 = dbschema_tDBOutput_3 + "\".\"" + ("income_avg_occupation");
-				}
-
-				int nb_line_tDBOutput_3 = 0;
-				int nb_line_update_tDBOutput_3 = 0;
-				int nb_line_inserted_tDBOutput_3 = 0;
-				int nb_line_deleted_tDBOutput_3 = 0;
-				int nb_line_rejected_tDBOutput_3 = 0;
-
-				int deletedCount_tDBOutput_3 = 0;
-				int updatedCount_tDBOutput_3 = 0;
-				int insertedCount_tDBOutput_3 = 0;
-				int rowsToCommitCount_tDBOutput_3 = 0;
-				int rejectedCount_tDBOutput_3 = 0;
-
-				boolean whetherReject_tDBOutput_3 = false;
-
-				java.sql.Connection conn_tDBOutput_3 = null;
-				String dbUser_tDBOutput_3 = null;
-
-				java.lang.Class.forName("org.postgresql.Driver");
-
-				String url_tDBOutput_3 = "jdbc:postgresql://" + "" + ":" + "32768" + "/" + "postgres";
-				dbUser_tDBOutput_3 = "admin";
-
-				final String decryptedPassword_tDBOutput_3 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:NV1mtT1jZKWslBEQK7Ow4AU+k2121yktcB79I44yThass/+O");
-
-				String dbPwd_tDBOutput_3 = decryptedPassword_tDBOutput_3;
-
-				conn_tDBOutput_3 = java.sql.DriverManager.getConnection(url_tDBOutput_3, dbUser_tDBOutput_3,
-						dbPwd_tDBOutput_3);
-
-				resourceMap.put("conn_tDBOutput_3", conn_tDBOutput_3);
-				conn_tDBOutput_3.setAutoCommit(false);
-				int commitEvery_tDBOutput_3 = 10000;
-				int commitCounter_tDBOutput_3 = 0;
-
-				int batchSize_tDBOutput_3 = 10000;
-				int batchSizeCounter_tDBOutput_3 = 0;
-
-				int count_tDBOutput_3 = 0;
-				java.sql.DatabaseMetaData dbMetaData_tDBOutput_3 = conn_tDBOutput_3.getMetaData();
-				boolean whetherExist_tDBOutput_3 = false;
-				try (java.sql.ResultSet rsTable_tDBOutput_3 = dbMetaData_tDBOutput_3.getTables(null, null, null,
-						new String[] { "TABLE" })) {
-					String defaultSchema_tDBOutput_3 = "public";
-					if (dbschema_tDBOutput_3 == null || dbschema_tDBOutput_3.trim().length() == 0) {
-						try (java.sql.Statement stmtSchema_tDBOutput_3 = conn_tDBOutput_3.createStatement();
-								java.sql.ResultSet rsSchema_tDBOutput_3 = stmtSchema_tDBOutput_3
-										.executeQuery("select current_schema() ")) {
-							while (rsSchema_tDBOutput_3.next()) {
-								defaultSchema_tDBOutput_3 = rsSchema_tDBOutput_3.getString("current_schema");
-							}
-						}
-					}
-					while (rsTable_tDBOutput_3.next()) {
-						String table_tDBOutput_3 = rsTable_tDBOutput_3.getString("TABLE_NAME");
-						String schema_tDBOutput_3 = rsTable_tDBOutput_3.getString("TABLE_SCHEM");
-						if (table_tDBOutput_3.equals(("income_avg_occupation"))
-								&& (schema_tDBOutput_3.equals(dbschema_tDBOutput_3)
-										|| ((dbschema_tDBOutput_3 == null || dbschema_tDBOutput_3.trim().length() == 0)
-												&& defaultSchema_tDBOutput_3.equals(schema_tDBOutput_3)))) {
-							whetherExist_tDBOutput_3 = true;
-							break;
-						}
-					}
-				}
-				if (!whetherExist_tDBOutput_3) {
-					try (java.sql.Statement stmtCreate_tDBOutput_3 = conn_tDBOutput_3.createStatement()) {
-						stmtCreate_tDBOutput_3.execute("CREATE TABLE \"" + tableName_tDBOutput_3
-								+ "\"(\"occupation\" VARCHAR(20)  ,\"income_dollar\" INT4 )");
-					}
-				}
-				String insert_tDBOutput_3 = "INSERT INTO \"" + tableName_tDBOutput_3
-						+ "\" (\"occupation\",\"income_dollar\") VALUES (?,?)";
-
-				java.sql.PreparedStatement pstmt_tDBOutput_3 = conn_tDBOutput_3.prepareStatement(insert_tDBOutput_3);
-				resourceMap.put("pstmt_tDBOutput_3", pstmt_tDBOutput_3);
-
-				/**
-				 * [tDBOutput_3 begin ] stop
-				 */
-
-				/**
-				 * [tAggregateRow_2_AGGIN begin ] start
-				 */
-
-				ok_Hash.put("tAggregateRow_2_AGGIN", false);
-				start_Hash.put("tAggregateRow_2_AGGIN", System.currentTimeMillis());
-
-				currentVirtualComponent = "tAggregateRow_2";
-
-				currentComponent = "tAggregateRow_2_AGGIN";
-
-				int tos_count_tAggregateRow_2_AGGIN = 0;
-
-				java.util.Collection<AggOperationStruct_tAggregateRow_2> values_tAggregateRow_2 = hash_tAggregateRow_2
-						.values();
-
-				globalMap.put("tAggregateRow_2_NB_LINE", values_tAggregateRow_2.size());
-
-				for (AggOperationStruct_tAggregateRow_2 aggregated_row_tAggregateRow_2 : values_tAggregateRow_2) { // G_AggR_600
-
-					/**
-					 * [tAggregateRow_2_AGGIN begin ] stop
-					 */
-
-					/**
-					 * [tAggregateRow_2_AGGIN main ] start
-					 */
-
-					currentVirtualComponent = "tAggregateRow_2";
-
-					currentComponent = "tAggregateRow_2_AGGIN";
-
-					row8.occupation = aggregated_row_tAggregateRow_2.occupation;
-
-					if (aggregated_row_tAggregateRow_2.income_dollar_count > 0) {
-
-						double row8_income_dollar_temp = (double) aggregated_row_tAggregateRow_2.income_dollar_sum
-								/ (double) aggregated_row_tAggregateRow_2.income_dollar_count;
-
-						row8.income_dollar = (int) row8_income_dollar_temp;
-
-					} else {
-						String count = "0";
-
-						row8.income_dollar = ParserUtils.parseTo_Integer(count);
-
-					}
-
-					tos_count_tAggregateRow_2_AGGIN++;
-
-					/**
-					 * [tAggregateRow_2_AGGIN main ] stop
-					 */
-
-					/**
-					 * [tAggregateRow_2_AGGIN process_data_begin ] start
-					 */
-
-					currentVirtualComponent = "tAggregateRow_2";
-
-					currentComponent = "tAggregateRow_2_AGGIN";
-
-					/**
-					 * [tAggregateRow_2_AGGIN process_data_begin ] stop
-					 */
-
-					/**
-					 * [tDBOutput_3 main ] start
-					 */
-
-					currentComponent = "tDBOutput_3";
-
-					if (execStat) {
-						runStat.updateStatOnConnection(iterateId, 1, 1
-
-								, "row8"
-
-						);
-					}
-
-					whetherReject_tDBOutput_3 = false;
-					if (row8.occupation == null) {
-						pstmt_tDBOutput_3.setNull(1, java.sql.Types.VARCHAR);
-					} else {
-						pstmt_tDBOutput_3.setString(1, row8.occupation);
-					}
-
-					if (row8.income_dollar == null) {
-						pstmt_tDBOutput_3.setNull(2, java.sql.Types.INTEGER);
-					} else {
-						pstmt_tDBOutput_3.setInt(2, row8.income_dollar);
-					}
-
-					pstmt_tDBOutput_3.addBatch();
-					nb_line_tDBOutput_3++;
-
-					batchSizeCounter_tDBOutput_3++;
-
-					if ((batchSize_tDBOutput_3 > 0) && (batchSize_tDBOutput_3 <= batchSizeCounter_tDBOutput_3)) {
-						try {
-							int countSum_tDBOutput_3 = 0;
-
-							for (int countEach_tDBOutput_3 : pstmt_tDBOutput_3.executeBatch()) {
-								countSum_tDBOutput_3 += (countEach_tDBOutput_3 < 0 ? 0 : countEach_tDBOutput_3);
-							}
-							rowsToCommitCount_tDBOutput_3 += countSum_tDBOutput_3;
-
-							insertedCount_tDBOutput_3 += countSum_tDBOutput_3;
-
-							batchSizeCounter_tDBOutput_3 = 0;
-						} catch (java.sql.BatchUpdateException e_tDBOutput_3) {
-							globalMap.put("tDBOutput_3_ERROR_MESSAGE", e_tDBOutput_3.getMessage());
-							java.sql.SQLException ne_tDBOutput_3 = e_tDBOutput_3.getNextException(),
-									sqle_tDBOutput_3 = null;
-							String errormessage_tDBOutput_3;
-							if (ne_tDBOutput_3 != null) {
-								// build new exception to provide the original cause
-								sqle_tDBOutput_3 = new java.sql.SQLException(
-										e_tDBOutput_3.getMessage() + "\ncaused by: " + ne_tDBOutput_3.getMessage(),
-										ne_tDBOutput_3.getSQLState(), ne_tDBOutput_3.getErrorCode(), ne_tDBOutput_3);
-								errormessage_tDBOutput_3 = sqle_tDBOutput_3.getMessage();
-							} else {
-								errormessage_tDBOutput_3 = e_tDBOutput_3.getMessage();
-							}
-
-							int countSum_tDBOutput_3 = 0;
-							for (int countEach_tDBOutput_3 : e_tDBOutput_3.getUpdateCounts()) {
-								countSum_tDBOutput_3 += (countEach_tDBOutput_3 < 0 ? 0 : countEach_tDBOutput_3);
-							}
-							rowsToCommitCount_tDBOutput_3 += countSum_tDBOutput_3;
-
-							insertedCount_tDBOutput_3 += countSum_tDBOutput_3;
-
-							System.err.println(errormessage_tDBOutput_3);
-
-						}
-					}
-
-					commitCounter_tDBOutput_3++;
-					if (commitEvery_tDBOutput_3 <= commitCounter_tDBOutput_3) {
-						if ((batchSize_tDBOutput_3 > 0) && (batchSizeCounter_tDBOutput_3 > 0)) {
-							try {
-								int countSum_tDBOutput_3 = 0;
-
-								for (int countEach_tDBOutput_3 : pstmt_tDBOutput_3.executeBatch()) {
-									countSum_tDBOutput_3 += (countEach_tDBOutput_3 < 0 ? 0 : countEach_tDBOutput_3);
-								}
-								rowsToCommitCount_tDBOutput_3 += countSum_tDBOutput_3;
-
-								insertedCount_tDBOutput_3 += countSum_tDBOutput_3;
-
-								batchSizeCounter_tDBOutput_3 = 0;
-							} catch (java.sql.BatchUpdateException e_tDBOutput_3) {
-								globalMap.put("tDBOutput_3_ERROR_MESSAGE", e_tDBOutput_3.getMessage());
-								java.sql.SQLException ne_tDBOutput_3 = e_tDBOutput_3.getNextException(),
-										sqle_tDBOutput_3 = null;
-								String errormessage_tDBOutput_3;
-								if (ne_tDBOutput_3 != null) {
-									// build new exception to provide the original cause
-									sqle_tDBOutput_3 = new java.sql.SQLException(
-											e_tDBOutput_3.getMessage() + "\ncaused by: " + ne_tDBOutput_3.getMessage(),
-											ne_tDBOutput_3.getSQLState(), ne_tDBOutput_3.getErrorCode(),
-											ne_tDBOutput_3);
-									errormessage_tDBOutput_3 = sqle_tDBOutput_3.getMessage();
-								} else {
-									errormessage_tDBOutput_3 = e_tDBOutput_3.getMessage();
-								}
-
-								int countSum_tDBOutput_3 = 0;
-								for (int countEach_tDBOutput_3 : e_tDBOutput_3.getUpdateCounts()) {
-									countSum_tDBOutput_3 += (countEach_tDBOutput_3 < 0 ? 0 : countEach_tDBOutput_3);
-								}
-								rowsToCommitCount_tDBOutput_3 += countSum_tDBOutput_3;
-
-								insertedCount_tDBOutput_3 += countSum_tDBOutput_3;
-
-								System.err.println(errormessage_tDBOutput_3);
-
-							}
-						}
-						if (rowsToCommitCount_tDBOutput_3 != 0) {
-
-						}
-						conn_tDBOutput_3.commit();
-						if (rowsToCommitCount_tDBOutput_3 != 0) {
-
-							rowsToCommitCount_tDBOutput_3 = 0;
-						}
-						commitCounter_tDBOutput_3 = 0;
-					}
-
-					tos_count_tDBOutput_3++;
-
-					/**
-					 * [tDBOutput_3 main ] stop
-					 */
-
-					/**
-					 * [tDBOutput_3 process_data_begin ] start
-					 */
-
-					currentComponent = "tDBOutput_3";
-
-					/**
-					 * [tDBOutput_3 process_data_begin ] stop
-					 */
-
-					/**
-					 * [tDBOutput_3 process_data_end ] start
-					 */
-
-					currentComponent = "tDBOutput_3";
-
-					/**
-					 * [tDBOutput_3 process_data_end ] stop
-					 */
-
-					/**
-					 * [tAggregateRow_2_AGGIN process_data_end ] start
-					 */
-
-					currentVirtualComponent = "tAggregateRow_2";
-
-					currentComponent = "tAggregateRow_2_AGGIN";
-
-					/**
-					 * [tAggregateRow_2_AGGIN process_data_end ] stop
-					 */
-
-					/**
-					 * [tAggregateRow_2_AGGIN end ] start
-					 */
-
-					currentVirtualComponent = "tAggregateRow_2";
-
-					currentComponent = "tAggregateRow_2_AGGIN";
-
-				} // G_AggR_600
-
-				ok_Hash.put("tAggregateRow_2_AGGIN", true);
-				end_Hash.put("tAggregateRow_2_AGGIN", System.currentTimeMillis());
-
-				/**
-				 * [tAggregateRow_2_AGGIN end ] stop
-				 */
-
-				/**
-				 * [tDBOutput_3 end ] start
-				 */
-
-				currentComponent = "tDBOutput_3";
-
-				try {
-					int countSum_tDBOutput_3 = 0;
-					if (pstmt_tDBOutput_3 != null && batchSizeCounter_tDBOutput_3 > 0) {
-
-						for (int countEach_tDBOutput_3 : pstmt_tDBOutput_3.executeBatch()) {
-							countSum_tDBOutput_3 += (countEach_tDBOutput_3 < 0 ? 0 : countEach_tDBOutput_3);
-						}
-						rowsToCommitCount_tDBOutput_3 += countSum_tDBOutput_3;
-
-					}
-
-					insertedCount_tDBOutput_3 += countSum_tDBOutput_3;
-
-				} catch (java.sql.BatchUpdateException e_tDBOutput_3) {
-					globalMap.put("tDBOutput_3_ERROR_MESSAGE", e_tDBOutput_3.getMessage());
-					java.sql.SQLException ne_tDBOutput_3 = e_tDBOutput_3.getNextException(), sqle_tDBOutput_3 = null;
-					String errormessage_tDBOutput_3;
-					if (ne_tDBOutput_3 != null) {
-						// build new exception to provide the original cause
-						sqle_tDBOutput_3 = new java.sql.SQLException(
-								e_tDBOutput_3.getMessage() + "\ncaused by: " + ne_tDBOutput_3.getMessage(),
-								ne_tDBOutput_3.getSQLState(), ne_tDBOutput_3.getErrorCode(), ne_tDBOutput_3);
-						errormessage_tDBOutput_3 = sqle_tDBOutput_3.getMessage();
-					} else {
-						errormessage_tDBOutput_3 = e_tDBOutput_3.getMessage();
-					}
-
-					int countSum_tDBOutput_3 = 0;
-					for (int countEach_tDBOutput_3 : e_tDBOutput_3.getUpdateCounts()) {
-						countSum_tDBOutput_3 += (countEach_tDBOutput_3 < 0 ? 0 : countEach_tDBOutput_3);
-					}
-					rowsToCommitCount_tDBOutput_3 += countSum_tDBOutput_3;
-
-					insertedCount_tDBOutput_3 += countSum_tDBOutput_3;
-
-					System.err.println(errormessage_tDBOutput_3);
-
-				}
-
-				if (pstmt_tDBOutput_3 != null) {
-
-					pstmt_tDBOutput_3.close();
-					resourceMap.remove("pstmt_tDBOutput_3");
-				}
-				resourceMap.put("statementClosed_tDBOutput_3", true);
-				if (rowsToCommitCount_tDBOutput_3 != 0) {
-
-				}
-				conn_tDBOutput_3.commit();
-				if (rowsToCommitCount_tDBOutput_3 != 0) {
-
-					rowsToCommitCount_tDBOutput_3 = 0;
-				}
-				commitCounter_tDBOutput_3 = 0;
-
-				conn_tDBOutput_3.close();
-
-				resourceMap.put("finish_tDBOutput_3", true);
-
-				nb_line_deleted_tDBOutput_3 = nb_line_deleted_tDBOutput_3 + deletedCount_tDBOutput_3;
-				nb_line_update_tDBOutput_3 = nb_line_update_tDBOutput_3 + updatedCount_tDBOutput_3;
-				nb_line_inserted_tDBOutput_3 = nb_line_inserted_tDBOutput_3 + insertedCount_tDBOutput_3;
-				nb_line_rejected_tDBOutput_3 = nb_line_rejected_tDBOutput_3 + rejectedCount_tDBOutput_3;
-
-				globalMap.put("tDBOutput_3_NB_LINE", nb_line_tDBOutput_3);
-				globalMap.put("tDBOutput_3_NB_LINE_UPDATED", nb_line_update_tDBOutput_3);
-				globalMap.put("tDBOutput_3_NB_LINE_INSERTED", nb_line_inserted_tDBOutput_3);
-				globalMap.put("tDBOutput_3_NB_LINE_DELETED", nb_line_deleted_tDBOutput_3);
-				globalMap.put("tDBOutput_3_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_3);
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row8");
-				}
-
-				ok_Hash.put("tDBOutput_3", true);
-				end_Hash.put("tDBOutput_3", System.currentTimeMillis());
-
-				/**
-				 * [tDBOutput_3 end ] stop
-				 */
-
-				/**
 				 * [tAggregateRow_1_AGGOUT end ] start
 				 */
 
@@ -7676,9 +8374,9 @@ public class db_to_db implements TalendJob {
 
 				String tableName_tDBOutput_4 = null;
 				if (dbschema_tDBOutput_4 == null || dbschema_tDBOutput_4.trim().length() == 0) {
-					tableName_tDBOutput_4 = ("income_total_state");
+					tableName_tDBOutput_4 = ("income_avg_state");
 				} else {
-					tableName_tDBOutput_4 = dbschema_tDBOutput_4 + "\".\"" + ("income_total_state");
+					tableName_tDBOutput_4 = dbschema_tDBOutput_4 + "\".\"" + ("income_avg_state");
 				}
 
 				int nb_line_tDBOutput_4 = 0;
@@ -7704,7 +8402,7 @@ public class db_to_db implements TalendJob {
 				dbUser_tDBOutput_4 = "admin";
 
 				final String decryptedPassword_tDBOutput_4 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:a/tLrazzbcNikvcocVSVBT6sSAE4pjqv97BPXgRCxlts8JCq");
+						"enc:routine.encryption.key.v1:RoAFf4hXIRY9y98LVsYMvSYsZfn74PyD9M77Uqv+xu3ZTP6p");
 
 				String dbPwd_tDBOutput_4 = decryptedPassword_tDBOutput_4;
 
@@ -7737,7 +8435,7 @@ public class db_to_db implements TalendJob {
 					while (rsTable_tDBOutput_4.next()) {
 						String table_tDBOutput_4 = rsTable_tDBOutput_4.getString("TABLE_NAME");
 						String schema_tDBOutput_4 = rsTable_tDBOutput_4.getString("TABLE_SCHEM");
-						if (table_tDBOutput_4.equals(("income_total_state"))
+						if (table_tDBOutput_4.equals(("income_avg_state"))
 								&& (schema_tDBOutput_4.equals(dbschema_tDBOutput_4)
 										|| ((dbschema_tDBOutput_4 == null || dbschema_tDBOutput_4.trim().length() == 0)
 												&& defaultSchema_tDBOutput_4.equals(schema_tDBOutput_4)))) {
@@ -7746,14 +8444,17 @@ public class db_to_db implements TalendJob {
 						}
 					}
 				}
-				if (!whetherExist_tDBOutput_4) {
-					try (java.sql.Statement stmtCreate_tDBOutput_4 = conn_tDBOutput_4.createStatement()) {
-						stmtCreate_tDBOutput_4.execute("CREATE TABLE \"" + tableName_tDBOutput_4
-								+ "\"(\"state\" VARCHAR(20)  ,\"income_dollar\" INT4 )");
+				if (whetherExist_tDBOutput_4) {
+					try (java.sql.Statement stmtDrop_tDBOutput_4 = conn_tDBOutput_4.createStatement()) {
+						stmtDrop_tDBOutput_4.execute("DROP TABLE \"" + tableName_tDBOutput_4 + "\"");
 					}
 				}
+				try (java.sql.Statement stmtCreate_tDBOutput_4 = conn_tDBOutput_4.createStatement()) {
+					stmtCreate_tDBOutput_4.execute("CREATE TABLE \"" + tableName_tDBOutput_4
+							+ "\"(\"state\" VARCHAR(20)  ,\"income_dollar\" INT4 ,\"load_date\" DATE )");
+				}
 				String insert_tDBOutput_4 = "INSERT INTO \"" + tableName_tDBOutput_4
-						+ "\" (\"state\",\"income_dollar\") VALUES (?,?)";
+						+ "\" (\"state\",\"income_dollar\",\"load_date\") VALUES (?,?,?)";
 
 				java.sql.PreparedStatement pstmt_tDBOutput_4 = conn_tDBOutput_4.prepareStatement(insert_tDBOutput_4);
 				resourceMap.put("pstmt_tDBOutput_4", pstmt_tDBOutput_4);
@@ -7795,7 +8496,21 @@ public class db_to_db implements TalendJob {
 					currentComponent = "tAggregateRow_1_AGGIN";
 
 					row9.state = aggregated_row_tAggregateRow_1.state;
-					row9.income_dollar = aggregated_row_tAggregateRow_1.income_dollar_sum;
+
+					if (aggregated_row_tAggregateRow_1.income_dollar_count > 0) {
+
+						double row9_income_dollar_temp = (double) aggregated_row_tAggregateRow_1.income_dollar_sum
+								/ (double) aggregated_row_tAggregateRow_1.income_dollar_count;
+
+						row9.income_dollar = (int) row9_income_dollar_temp;
+
+					} else {
+						String count = "0";
+
+						row9.income_dollar = ParserUtils.parseTo_Integer(count);
+
+					}
+					row9.load_date = aggregated_row_tAggregateRow_1.load_date;
 
 					tos_count_tAggregateRow_1_AGGIN++;
 
@@ -7840,6 +8555,12 @@ public class db_to_db implements TalendJob {
 						pstmt_tDBOutput_4.setNull(2, java.sql.Types.INTEGER);
 					} else {
 						pstmt_tDBOutput_4.setInt(2, row9.income_dollar);
+					}
+
+					if (row9.load_date != null) {
+						pstmt_tDBOutput_4.setTimestamp(3, new java.sql.Timestamp(row9.load_date.getTime()));
+					} else {
+						pstmt_tDBOutput_4.setNull(3, java.sql.Types.TIMESTAMP);
 					}
 
 					pstmt_tDBOutput_4.addBatch();
@@ -8082,6 +8803,474 @@ public class db_to_db implements TalendJob {
 				 * [tDBOutput_4 end ] stop
 				 */
 
+				/**
+				 * [tAggregateRow_2_AGGOUT end ] start
+				 */
+
+				currentVirtualComponent = "tAggregateRow_2";
+
+				currentComponent = "tAggregateRow_2_AGGOUT";
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row6");
+				}
+
+				ok_Hash.put("tAggregateRow_2_AGGOUT", true);
+				end_Hash.put("tAggregateRow_2_AGGOUT", System.currentTimeMillis());
+
+				/**
+				 * [tAggregateRow_2_AGGOUT end ] stop
+				 */
+
+				/**
+				 * [tDBOutput_3 begin ] start
+				 */
+
+				ok_Hash.put("tDBOutput_3", false);
+				start_Hash.put("tDBOutput_3", System.currentTimeMillis());
+
+				currentComponent = "tDBOutput_3";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row8");
+				}
+
+				int tos_count_tDBOutput_3 = 0;
+
+				String dbschema_tDBOutput_3 = null;
+				dbschema_tDBOutput_3 = "";
+
+				String tableName_tDBOutput_3 = null;
+				if (dbschema_tDBOutput_3 == null || dbschema_tDBOutput_3.trim().length() == 0) {
+					tableName_tDBOutput_3 = ("income_avg_occupation");
+				} else {
+					tableName_tDBOutput_3 = dbschema_tDBOutput_3 + "\".\"" + ("income_avg_occupation");
+				}
+
+				int nb_line_tDBOutput_3 = 0;
+				int nb_line_update_tDBOutput_3 = 0;
+				int nb_line_inserted_tDBOutput_3 = 0;
+				int nb_line_deleted_tDBOutput_3 = 0;
+				int nb_line_rejected_tDBOutput_3 = 0;
+
+				int deletedCount_tDBOutput_3 = 0;
+				int updatedCount_tDBOutput_3 = 0;
+				int insertedCount_tDBOutput_3 = 0;
+				int rowsToCommitCount_tDBOutput_3 = 0;
+				int rejectedCount_tDBOutput_3 = 0;
+
+				boolean whetherReject_tDBOutput_3 = false;
+
+				java.sql.Connection conn_tDBOutput_3 = null;
+				String dbUser_tDBOutput_3 = null;
+
+				java.lang.Class.forName("org.postgresql.Driver");
+
+				String url_tDBOutput_3 = "jdbc:postgresql://" + "" + ":" + "32768" + "/" + "postgres";
+				dbUser_tDBOutput_3 = "admin";
+
+				final String decryptedPassword_tDBOutput_3 = routines.system.PasswordEncryptUtil.decryptPassword(
+						"enc:routine.encryption.key.v1:PUG0LytvRe7hiMVii10dJIuCkDoF7Vd4Ur7QXlItTXr9NsLK");
+
+				String dbPwd_tDBOutput_3 = decryptedPassword_tDBOutput_3;
+
+				conn_tDBOutput_3 = java.sql.DriverManager.getConnection(url_tDBOutput_3, dbUser_tDBOutput_3,
+						dbPwd_tDBOutput_3);
+
+				resourceMap.put("conn_tDBOutput_3", conn_tDBOutput_3);
+				conn_tDBOutput_3.setAutoCommit(false);
+				int commitEvery_tDBOutput_3 = 10000;
+				int commitCounter_tDBOutput_3 = 0;
+
+				int batchSize_tDBOutput_3 = 10000;
+				int batchSizeCounter_tDBOutput_3 = 0;
+
+				int count_tDBOutput_3 = 0;
+				java.sql.DatabaseMetaData dbMetaData_tDBOutput_3 = conn_tDBOutput_3.getMetaData();
+				boolean whetherExist_tDBOutput_3 = false;
+				try (java.sql.ResultSet rsTable_tDBOutput_3 = dbMetaData_tDBOutput_3.getTables(null, null, null,
+						new String[] { "TABLE" })) {
+					String defaultSchema_tDBOutput_3 = "public";
+					if (dbschema_tDBOutput_3 == null || dbschema_tDBOutput_3.trim().length() == 0) {
+						try (java.sql.Statement stmtSchema_tDBOutput_3 = conn_tDBOutput_3.createStatement();
+								java.sql.ResultSet rsSchema_tDBOutput_3 = stmtSchema_tDBOutput_3
+										.executeQuery("select current_schema() ")) {
+							while (rsSchema_tDBOutput_3.next()) {
+								defaultSchema_tDBOutput_3 = rsSchema_tDBOutput_3.getString("current_schema");
+							}
+						}
+					}
+					while (rsTable_tDBOutput_3.next()) {
+						String table_tDBOutput_3 = rsTable_tDBOutput_3.getString("TABLE_NAME");
+						String schema_tDBOutput_3 = rsTable_tDBOutput_3.getString("TABLE_SCHEM");
+						if (table_tDBOutput_3.equals(("income_avg_occupation"))
+								&& (schema_tDBOutput_3.equals(dbschema_tDBOutput_3)
+										|| ((dbschema_tDBOutput_3 == null || dbschema_tDBOutput_3.trim().length() == 0)
+												&& defaultSchema_tDBOutput_3.equals(schema_tDBOutput_3)))) {
+							whetherExist_tDBOutput_3 = true;
+							break;
+						}
+					}
+				}
+				if (whetherExist_tDBOutput_3) {
+					try (java.sql.Statement stmtDrop_tDBOutput_3 = conn_tDBOutput_3.createStatement()) {
+						stmtDrop_tDBOutput_3.execute("DROP TABLE \"" + tableName_tDBOutput_3 + "\"");
+					}
+				}
+				try (java.sql.Statement stmtCreate_tDBOutput_3 = conn_tDBOutput_3.createStatement()) {
+					stmtCreate_tDBOutput_3.execute("CREATE TABLE \"" + tableName_tDBOutput_3
+							+ "\"(\"occupation\" VARCHAR(20)  ,\"income_dollar\" INT4 ,\"load_date\" DATE )");
+				}
+				String insert_tDBOutput_3 = "INSERT INTO \"" + tableName_tDBOutput_3
+						+ "\" (\"occupation\",\"income_dollar\",\"load_date\") VALUES (?,?,?)";
+
+				java.sql.PreparedStatement pstmt_tDBOutput_3 = conn_tDBOutput_3.prepareStatement(insert_tDBOutput_3);
+				resourceMap.put("pstmt_tDBOutput_3", pstmt_tDBOutput_3);
+
+				/**
+				 * [tDBOutput_3 begin ] stop
+				 */
+
+				/**
+				 * [tAggregateRow_2_AGGIN begin ] start
+				 */
+
+				ok_Hash.put("tAggregateRow_2_AGGIN", false);
+				start_Hash.put("tAggregateRow_2_AGGIN", System.currentTimeMillis());
+
+				currentVirtualComponent = "tAggregateRow_2";
+
+				currentComponent = "tAggregateRow_2_AGGIN";
+
+				int tos_count_tAggregateRow_2_AGGIN = 0;
+
+				java.util.Collection<AggOperationStruct_tAggregateRow_2> values_tAggregateRow_2 = hash_tAggregateRow_2
+						.values();
+
+				globalMap.put("tAggregateRow_2_NB_LINE", values_tAggregateRow_2.size());
+
+				for (AggOperationStruct_tAggregateRow_2 aggregated_row_tAggregateRow_2 : values_tAggregateRow_2) { // G_AggR_600
+
+					/**
+					 * [tAggregateRow_2_AGGIN begin ] stop
+					 */
+
+					/**
+					 * [tAggregateRow_2_AGGIN main ] start
+					 */
+
+					currentVirtualComponent = "tAggregateRow_2";
+
+					currentComponent = "tAggregateRow_2_AGGIN";
+
+					row8.occupation = aggregated_row_tAggregateRow_2.occupation;
+
+					if (aggregated_row_tAggregateRow_2.income_dollar_count > 0) {
+
+						double row8_income_dollar_temp = (double) aggregated_row_tAggregateRow_2.income_dollar_sum
+								/ (double) aggregated_row_tAggregateRow_2.income_dollar_count;
+
+						row8.income_dollar = (int) row8_income_dollar_temp;
+
+					} else {
+						String count = "0";
+
+						row8.income_dollar = ParserUtils.parseTo_Integer(count);
+
+					}
+					row8.load_date = aggregated_row_tAggregateRow_2.load_date;
+
+					tos_count_tAggregateRow_2_AGGIN++;
+
+					/**
+					 * [tAggregateRow_2_AGGIN main ] stop
+					 */
+
+					/**
+					 * [tAggregateRow_2_AGGIN process_data_begin ] start
+					 */
+
+					currentVirtualComponent = "tAggregateRow_2";
+
+					currentComponent = "tAggregateRow_2_AGGIN";
+
+					/**
+					 * [tAggregateRow_2_AGGIN process_data_begin ] stop
+					 */
+
+					/**
+					 * [tDBOutput_3 main ] start
+					 */
+
+					currentComponent = "tDBOutput_3";
+
+					if (execStat) {
+						runStat.updateStatOnConnection(iterateId, 1, 1
+
+								, "row8"
+
+						);
+					}
+
+					whetherReject_tDBOutput_3 = false;
+					if (row8.occupation == null) {
+						pstmt_tDBOutput_3.setNull(1, java.sql.Types.VARCHAR);
+					} else {
+						pstmt_tDBOutput_3.setString(1, row8.occupation);
+					}
+
+					if (row8.income_dollar == null) {
+						pstmt_tDBOutput_3.setNull(2, java.sql.Types.INTEGER);
+					} else {
+						pstmt_tDBOutput_3.setInt(2, row8.income_dollar);
+					}
+
+					if (row8.load_date != null) {
+						pstmt_tDBOutput_3.setTimestamp(3, new java.sql.Timestamp(row8.load_date.getTime()));
+					} else {
+						pstmt_tDBOutput_3.setNull(3, java.sql.Types.TIMESTAMP);
+					}
+
+					pstmt_tDBOutput_3.addBatch();
+					nb_line_tDBOutput_3++;
+
+					batchSizeCounter_tDBOutput_3++;
+
+					if ((batchSize_tDBOutput_3 > 0) && (batchSize_tDBOutput_3 <= batchSizeCounter_tDBOutput_3)) {
+						try {
+							int countSum_tDBOutput_3 = 0;
+
+							for (int countEach_tDBOutput_3 : pstmt_tDBOutput_3.executeBatch()) {
+								countSum_tDBOutput_3 += (countEach_tDBOutput_3 < 0 ? 0 : countEach_tDBOutput_3);
+							}
+							rowsToCommitCount_tDBOutput_3 += countSum_tDBOutput_3;
+
+							insertedCount_tDBOutput_3 += countSum_tDBOutput_3;
+
+							batchSizeCounter_tDBOutput_3 = 0;
+						} catch (java.sql.BatchUpdateException e_tDBOutput_3) {
+							globalMap.put("tDBOutput_3_ERROR_MESSAGE", e_tDBOutput_3.getMessage());
+							java.sql.SQLException ne_tDBOutput_3 = e_tDBOutput_3.getNextException(),
+									sqle_tDBOutput_3 = null;
+							String errormessage_tDBOutput_3;
+							if (ne_tDBOutput_3 != null) {
+								// build new exception to provide the original cause
+								sqle_tDBOutput_3 = new java.sql.SQLException(
+										e_tDBOutput_3.getMessage() + "\ncaused by: " + ne_tDBOutput_3.getMessage(),
+										ne_tDBOutput_3.getSQLState(), ne_tDBOutput_3.getErrorCode(), ne_tDBOutput_3);
+								errormessage_tDBOutput_3 = sqle_tDBOutput_3.getMessage();
+							} else {
+								errormessage_tDBOutput_3 = e_tDBOutput_3.getMessage();
+							}
+
+							int countSum_tDBOutput_3 = 0;
+							for (int countEach_tDBOutput_3 : e_tDBOutput_3.getUpdateCounts()) {
+								countSum_tDBOutput_3 += (countEach_tDBOutput_3 < 0 ? 0 : countEach_tDBOutput_3);
+							}
+							rowsToCommitCount_tDBOutput_3 += countSum_tDBOutput_3;
+
+							insertedCount_tDBOutput_3 += countSum_tDBOutput_3;
+
+							System.err.println(errormessage_tDBOutput_3);
+
+						}
+					}
+
+					commitCounter_tDBOutput_3++;
+					if (commitEvery_tDBOutput_3 <= commitCounter_tDBOutput_3) {
+						if ((batchSize_tDBOutput_3 > 0) && (batchSizeCounter_tDBOutput_3 > 0)) {
+							try {
+								int countSum_tDBOutput_3 = 0;
+
+								for (int countEach_tDBOutput_3 : pstmt_tDBOutput_3.executeBatch()) {
+									countSum_tDBOutput_3 += (countEach_tDBOutput_3 < 0 ? 0 : countEach_tDBOutput_3);
+								}
+								rowsToCommitCount_tDBOutput_3 += countSum_tDBOutput_3;
+
+								insertedCount_tDBOutput_3 += countSum_tDBOutput_3;
+
+								batchSizeCounter_tDBOutput_3 = 0;
+							} catch (java.sql.BatchUpdateException e_tDBOutput_3) {
+								globalMap.put("tDBOutput_3_ERROR_MESSAGE", e_tDBOutput_3.getMessage());
+								java.sql.SQLException ne_tDBOutput_3 = e_tDBOutput_3.getNextException(),
+										sqle_tDBOutput_3 = null;
+								String errormessage_tDBOutput_3;
+								if (ne_tDBOutput_3 != null) {
+									// build new exception to provide the original cause
+									sqle_tDBOutput_3 = new java.sql.SQLException(
+											e_tDBOutput_3.getMessage() + "\ncaused by: " + ne_tDBOutput_3.getMessage(),
+											ne_tDBOutput_3.getSQLState(), ne_tDBOutput_3.getErrorCode(),
+											ne_tDBOutput_3);
+									errormessage_tDBOutput_3 = sqle_tDBOutput_3.getMessage();
+								} else {
+									errormessage_tDBOutput_3 = e_tDBOutput_3.getMessage();
+								}
+
+								int countSum_tDBOutput_3 = 0;
+								for (int countEach_tDBOutput_3 : e_tDBOutput_3.getUpdateCounts()) {
+									countSum_tDBOutput_3 += (countEach_tDBOutput_3 < 0 ? 0 : countEach_tDBOutput_3);
+								}
+								rowsToCommitCount_tDBOutput_3 += countSum_tDBOutput_3;
+
+								insertedCount_tDBOutput_3 += countSum_tDBOutput_3;
+
+								System.err.println(errormessage_tDBOutput_3);
+
+							}
+						}
+						if (rowsToCommitCount_tDBOutput_3 != 0) {
+
+						}
+						conn_tDBOutput_3.commit();
+						if (rowsToCommitCount_tDBOutput_3 != 0) {
+
+							rowsToCommitCount_tDBOutput_3 = 0;
+						}
+						commitCounter_tDBOutput_3 = 0;
+					}
+
+					tos_count_tDBOutput_3++;
+
+					/**
+					 * [tDBOutput_3 main ] stop
+					 */
+
+					/**
+					 * [tDBOutput_3 process_data_begin ] start
+					 */
+
+					currentComponent = "tDBOutput_3";
+
+					/**
+					 * [tDBOutput_3 process_data_begin ] stop
+					 */
+
+					/**
+					 * [tDBOutput_3 process_data_end ] start
+					 */
+
+					currentComponent = "tDBOutput_3";
+
+					/**
+					 * [tDBOutput_3 process_data_end ] stop
+					 */
+
+					/**
+					 * [tAggregateRow_2_AGGIN process_data_end ] start
+					 */
+
+					currentVirtualComponent = "tAggregateRow_2";
+
+					currentComponent = "tAggregateRow_2_AGGIN";
+
+					/**
+					 * [tAggregateRow_2_AGGIN process_data_end ] stop
+					 */
+
+					/**
+					 * [tAggregateRow_2_AGGIN end ] start
+					 */
+
+					currentVirtualComponent = "tAggregateRow_2";
+
+					currentComponent = "tAggregateRow_2_AGGIN";
+
+				} // G_AggR_600
+
+				ok_Hash.put("tAggregateRow_2_AGGIN", true);
+				end_Hash.put("tAggregateRow_2_AGGIN", System.currentTimeMillis());
+
+				/**
+				 * [tAggregateRow_2_AGGIN end ] stop
+				 */
+
+				/**
+				 * [tDBOutput_3 end ] start
+				 */
+
+				currentComponent = "tDBOutput_3";
+
+				try {
+					int countSum_tDBOutput_3 = 0;
+					if (pstmt_tDBOutput_3 != null && batchSizeCounter_tDBOutput_3 > 0) {
+
+						for (int countEach_tDBOutput_3 : pstmt_tDBOutput_3.executeBatch()) {
+							countSum_tDBOutput_3 += (countEach_tDBOutput_3 < 0 ? 0 : countEach_tDBOutput_3);
+						}
+						rowsToCommitCount_tDBOutput_3 += countSum_tDBOutput_3;
+
+					}
+
+					insertedCount_tDBOutput_3 += countSum_tDBOutput_3;
+
+				} catch (java.sql.BatchUpdateException e_tDBOutput_3) {
+					globalMap.put("tDBOutput_3_ERROR_MESSAGE", e_tDBOutput_3.getMessage());
+					java.sql.SQLException ne_tDBOutput_3 = e_tDBOutput_3.getNextException(), sqle_tDBOutput_3 = null;
+					String errormessage_tDBOutput_3;
+					if (ne_tDBOutput_3 != null) {
+						// build new exception to provide the original cause
+						sqle_tDBOutput_3 = new java.sql.SQLException(
+								e_tDBOutput_3.getMessage() + "\ncaused by: " + ne_tDBOutput_3.getMessage(),
+								ne_tDBOutput_3.getSQLState(), ne_tDBOutput_3.getErrorCode(), ne_tDBOutput_3);
+						errormessage_tDBOutput_3 = sqle_tDBOutput_3.getMessage();
+					} else {
+						errormessage_tDBOutput_3 = e_tDBOutput_3.getMessage();
+					}
+
+					int countSum_tDBOutput_3 = 0;
+					for (int countEach_tDBOutput_3 : e_tDBOutput_3.getUpdateCounts()) {
+						countSum_tDBOutput_3 += (countEach_tDBOutput_3 < 0 ? 0 : countEach_tDBOutput_3);
+					}
+					rowsToCommitCount_tDBOutput_3 += countSum_tDBOutput_3;
+
+					insertedCount_tDBOutput_3 += countSum_tDBOutput_3;
+
+					System.err.println(errormessage_tDBOutput_3);
+
+				}
+
+				if (pstmt_tDBOutput_3 != null) {
+
+					pstmt_tDBOutput_3.close();
+					resourceMap.remove("pstmt_tDBOutput_3");
+				}
+				resourceMap.put("statementClosed_tDBOutput_3", true);
+				if (rowsToCommitCount_tDBOutput_3 != 0) {
+
+				}
+				conn_tDBOutput_3.commit();
+				if (rowsToCommitCount_tDBOutput_3 != 0) {
+
+					rowsToCommitCount_tDBOutput_3 = 0;
+				}
+				commitCounter_tDBOutput_3 = 0;
+
+				conn_tDBOutput_3.close();
+
+				resourceMap.put("finish_tDBOutput_3", true);
+
+				nb_line_deleted_tDBOutput_3 = nb_line_deleted_tDBOutput_3 + deletedCount_tDBOutput_3;
+				nb_line_update_tDBOutput_3 = nb_line_update_tDBOutput_3 + updatedCount_tDBOutput_3;
+				nb_line_inserted_tDBOutput_3 = nb_line_inserted_tDBOutput_3 + insertedCount_tDBOutput_3;
+				nb_line_rejected_tDBOutput_3 = nb_line_rejected_tDBOutput_3 + rejectedCount_tDBOutput_3;
+
+				globalMap.put("tDBOutput_3_NB_LINE", nb_line_tDBOutput_3);
+				globalMap.put("tDBOutput_3_NB_LINE_UPDATED", nb_line_update_tDBOutput_3);
+				globalMap.put("tDBOutput_3_NB_LINE_INSERTED", nb_line_inserted_tDBOutput_3);
+				globalMap.put("tDBOutput_3_NB_LINE_DELETED", nb_line_deleted_tDBOutput_3);
+				globalMap.put("tDBOutput_3_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_3);
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row8");
+				}
+
+				ok_Hash.put("tDBOutput_3", true);
+				end_Hash.put("tDBOutput_3", System.currentTimeMillis());
+
+				/**
+				 * [tDBOutput_3 end ] stop
+				 */
+
 			} // end the resume
 
 		} catch (java.lang.Exception e) {
@@ -8098,11 +9287,11 @@ public class db_to_db implements TalendJob {
 			throw error;
 		} finally {
 
-			// free memory for "tAggregateRow_1_AGGIN"
-			globalMap.remove("tAggregateRow_1");
-
 			// free memory for "tAggregateRow_2_AGGIN"
 			globalMap.remove("tAggregateRow_2");
+
+			// free memory for "tAggregateRow_1_AGGIN"
+			globalMap.remove("tAggregateRow_1");
 
 			try {
 
@@ -8124,63 +9313,6 @@ public class db_to_db implements TalendJob {
 
 				/**
 				 * [tReplicate_1 finally ] stop
-				 */
-
-				/**
-				 * [tAggregateRow_2_AGGOUT finally ] start
-				 */
-
-				currentVirtualComponent = "tAggregateRow_2";
-
-				currentComponent = "tAggregateRow_2_AGGOUT";
-
-				/**
-				 * [tAggregateRow_2_AGGOUT finally ] stop
-				 */
-
-				/**
-				 * [tAggregateRow_2_AGGIN finally ] start
-				 */
-
-				currentVirtualComponent = "tAggregateRow_2";
-
-				currentComponent = "tAggregateRow_2_AGGIN";
-
-				/**
-				 * [tAggregateRow_2_AGGIN finally ] stop
-				 */
-
-				/**
-				 * [tDBOutput_3 finally ] start
-				 */
-
-				currentComponent = "tDBOutput_3";
-
-				try {
-					if (resourceMap.get("statementClosed_tDBOutput_3") == null) {
-						java.sql.PreparedStatement pstmtToClose_tDBOutput_3 = null;
-						if ((pstmtToClose_tDBOutput_3 = (java.sql.PreparedStatement) resourceMap
-								.remove("pstmt_tDBOutput_3")) != null) {
-							pstmtToClose_tDBOutput_3.close();
-						}
-					}
-				} finally {
-					if (resourceMap.get("finish_tDBOutput_3") == null) {
-						java.sql.Connection ctn_tDBOutput_3 = null;
-						if ((ctn_tDBOutput_3 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_3")) != null) {
-							try {
-								ctn_tDBOutput_3.close();
-							} catch (java.sql.SQLException sqlEx_tDBOutput_3) {
-								String errorMessage_tDBOutput_3 = "failed to close the connection in tDBOutput_3 :"
-										+ sqlEx_tDBOutput_3.getMessage();
-								System.err.println(errorMessage_tDBOutput_3);
-							}
-						}
-					}
-				}
-
-				/**
-				 * [tDBOutput_3 finally ] stop
 				 */
 
 				/**
@@ -8238,6 +9370,63 @@ public class db_to_db implements TalendJob {
 
 				/**
 				 * [tDBOutput_4 finally ] stop
+				 */
+
+				/**
+				 * [tAggregateRow_2_AGGOUT finally ] start
+				 */
+
+				currentVirtualComponent = "tAggregateRow_2";
+
+				currentComponent = "tAggregateRow_2_AGGOUT";
+
+				/**
+				 * [tAggregateRow_2_AGGOUT finally ] stop
+				 */
+
+				/**
+				 * [tAggregateRow_2_AGGIN finally ] start
+				 */
+
+				currentVirtualComponent = "tAggregateRow_2";
+
+				currentComponent = "tAggregateRow_2_AGGIN";
+
+				/**
+				 * [tAggregateRow_2_AGGIN finally ] stop
+				 */
+
+				/**
+				 * [tDBOutput_3 finally ] start
+				 */
+
+				currentComponent = "tDBOutput_3";
+
+				try {
+					if (resourceMap.get("statementClosed_tDBOutput_3") == null) {
+						java.sql.PreparedStatement pstmtToClose_tDBOutput_3 = null;
+						if ((pstmtToClose_tDBOutput_3 = (java.sql.PreparedStatement) resourceMap
+								.remove("pstmt_tDBOutput_3")) != null) {
+							pstmtToClose_tDBOutput_3.close();
+						}
+					}
+				} finally {
+					if (resourceMap.get("finish_tDBOutput_3") == null) {
+						java.sql.Connection ctn_tDBOutput_3 = null;
+						if ((ctn_tDBOutput_3 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_3")) != null) {
+							try {
+								ctn_tDBOutput_3.close();
+							} catch (java.sql.SQLException sqlEx_tDBOutput_3) {
+								String errorMessage_tDBOutput_3 = "failed to close the connection in tDBOutput_3 :"
+										+ sqlEx_tDBOutput_3.getMessage();
+								System.err.println(errorMessage_tDBOutput_3);
+							}
+						}
+					}
+				}
+
+				/**
+				 * [tDBOutput_3 finally ] stop
 				 */
 
 			} catch (java.lang.Exception e) {
@@ -9005,6 +10194,12 @@ public class db_to_db implements TalendJob {
 			}
 			class ContextProcessing {
 				private void processContext_0() {
+					context.setContextType("webHook_discord", "id_String");
+					if (context.getStringValue("webHook_discord") == null) {
+						context.webHook_discord = null;
+					} else {
+						context.webHook_discord = (String) context.getProperty("webHook_discord");
+					}
 				}
 
 				public void processAllContext() {
@@ -9020,6 +10215,9 @@ public class db_to_db implements TalendJob {
 
 		// get context value from parent directly
 		if (parentContextMap != null && !parentContextMap.isEmpty()) {
+			if (parentContextMap.containsKey("webHook_discord")) {
+				context.webHook_discord = (String) parentContextMap.get("webHook_discord");
+			}
 		}
 
 		// Resume: init the resumeUtil
@@ -9264,6 +10462,6 @@ public class db_to_db implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 273244 characters generated by Talend Open Studio for Big Data on the 25
- * September 2023 at 16:20:40 ICT
+ * 306588 characters generated by Talend Open Studio for Big Data on the 26
+ * September 2023 at 00:53:12 ICT
  ************************************************************************************************/

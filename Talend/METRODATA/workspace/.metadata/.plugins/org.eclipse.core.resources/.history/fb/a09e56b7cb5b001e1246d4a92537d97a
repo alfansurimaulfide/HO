@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recyclebin:RecycleBin xmlns:recyclebin="http://www.talend.org/recyclebin">
+  <deletedFolders>process/Ch04helloWorld</deletedFolders>
+  <deletedFolders>process/Ch05Interface</deletedFolders>
+  <deletedFolders>process/Ch06firstJob</deletedFolders>
+  <deletedFolders>process/Ch07processFiles</deletedFolders>
+  <deletedFolders>process/Ch09processDatabases</deletedFolders>
+  <deletedFolders>process/Ch10processOtherFormats</deletedFolders>
+  <deletedFolders>process/Ch13dataQuality</deletedFolders>
+  <deletedFolders>process/ch12transformations</deletedFolders>
+  <deletedFolders>process/ch14fileManagement</deletedFolders>
+  <deletedItems id="_6iPU0G2_EeuB8eHY6Hs3Ig" path="" type="METADATA_CONNECTIONS"/>
+  <deletedItems id="_JlissBxbEeyug5QBUL4ZZw" path="" type="METADATA_CONNECTIONS"/>
+  <deletedItems id="_mcSisE7pEey6RaFKxZw7pA" path="" type="METADATA_CONNECTIONS"/>
+  <deletedItems id="_5rhj0FnEEe6MY7PCyWA0BA" path="" type="METADATA_GENERIC_SCHEMA"/>
+  <deletedItems id="_BzBzEHNsEeugev9CJJ6Szw" path="" type="METADATA_GENERIC_SCHEMA"/>
+  <deletedItems id="_LxaBoFtmEe68iro8OY5BVQ" path="" type="METADATA_GENERIC_SCHEMA"/>
+  <deletedItems id="_Ml44sHNsEeugev9CJJ6Szw" path="" type="METADATA_GENERIC_SCHEMA"/>
+  <deletedItems id="__0a8kFr0Ee60qbU1Pwu7xw" path="" type="METADATA_GENERIC_SCHEMA"/>
+  <deletedItems id="_O4gLIFXkEe63T4gRZ9m-Xw" path="Ch04helloWorld" type="PROCESS"/>
+  <deletedItems id="_aUI8AGjlEeuGjbOn3_-B3Q" path="Ch04helloWorld" type="PROCESS"/>
+  <deletedItems id="_YvwlEHfAEeuJaeaDjvlbbw" path="Ch05Interface" type="PROCESS"/>
+  <deletedItems id="_vcD1UIsxEeuunMUWaLu1AQ" path="Ch05Interface" type="PROCESS"/>
+  <deletedItems id="_hTRRUGjlEeuGjbOn3_-B3Q" path="Ch06firstJob" type="PROCESS"/>
+  <deletedItems id="_I0ELcGotEeuT74Li4x2pGg" path="Ch07processFiles" type="PROCESS"/>
+  <deletedItems id="_Kk854FdmEe62Op3T_hybkw" path="Ch07processFiles" type="PROCESS"/>
+  <deletedItems id="_OCSvkGpIEeuT74Li4x2pGg" path="Ch07processFiles" type="PROCESS"/>
+  <deletedItems id="_V0emAFdpEe62Op3T_hybkw" path="Ch07processFiles" type="PROCESS"/>
+  <deletedItems id="_jIOssGo2EeuT74Li4x2pGg" path="Ch07processFiles" type="PROCESS"/>
+  <deletedItems id="_tHt0oGo2EeuT74Li4x2pGg" path="Ch07processFiles" type="PROCESS"/>
+  <deletedItems id="_DiJv0Gz0EeuJX9E5uwcj4Q" path="Ch08properties" type="PROCESS"/>
+  <deletedItems id="_WuSQwGw0EeugyKYaxU2Kqg" path="Ch08properties" type="PROCESS"/>
+  <deletedItems id="_bGFZUHdqEeul8J5bLrRWpQ" path="Ch08properties" type="PROCESS"/>
+  <deletedItems id="_1EBrMFh6Ee6xjdQvfE9HUA" path="Ch09processDatabases" type="PROCESS"/>
+  <deletedItems id="_5odW8Fg-Ee6HX7qEHYr7Yw" path="Ch09processDatabases" type="PROCESS"/>
+  <deletedItems id="_BkcqsHDeEeuLcoBYPY0xCg" path="Ch09processDatabases" type="PROCESS"/>
+  <deletedItems id="_Hb9gQFiFEe6xjdQvfE9HUA" path="Ch09processDatabases" type="PROCESS"/>
+  <deletedItems id="_I6-sEHAdEeugrqymtAJZeA" path="Ch09processDatabases" type="PROCESS"/>
+  <deletedItems id="_RL0dIFq8Ee6WguJPZTjynA" path="Ch09processDatabases" type="PROCESS"/>
+  <deletedItems id="_Tju8QFg2Ee6kO5_ZYyIeJA" path="Ch09processDatabases" type="PROCESS"/>
+  <deletedItems id="__ZPFkHHIEeuMQuMcO82gMQ" path="Ch09processDatabases" type="PROCESS"/>
+  <deletedItems id="_ha_mAFA8EeyOX5bAfnTzFw" path="Ch09processDatabases" type="PROCESS"/>
+  <deletedItems id="_tDi58G9SEeukH5GhK2No3w" path="Ch09processDatabases" type="PROCESS"/>
+  <deletedItems id="_u-z74Fg3Ee6kO5_ZYyIeJA" path="Ch09processDatabases" type="PROCESS"/>
+  <deletedItems id="_zK6h8G2_EeuB8eHY6Hs3Ig" path="Ch09processDatabases" type="PROCESS"/>
+  <deletedItems id="_9bFbUHVAEeukzvLdb9t-PA" path="Ch10processOtherFormats" type="PROCESS"/>
+  <deletedItems id="_L4IUUHTsEeuGEYRkifvZaA" path="Ch10processOtherFormats" type="PROCESS"/>
+  <deletedItems id="_TlKQQFXHEe2rD5gjjbbQEA" path="Ch10processOtherFormats" type="PROCESS"/>
+  <deletedItems id="_V6xTQHQCEeutboWO6qviwQ" path="Ch10processOtherFormats" type="PROCESS"/>
+  <deletedItems id="_YOr_QHNVEeunDOgYCr9IAg" path="Ch10processOtherFormats" type="PROCESS"/>
+  <deletedItems id="_c7FWAHVPEeukzvLdb9t-PA" path="Ch10processOtherFormats" type="PROCESS"/>
+  <deletedItems id="_dkO-QHNuEeugev9CJJ6Szw" path="Ch10processOtherFormats" type="PROCESS"/>
+  <deletedItems id="_II-yUHe7EeuJaeaDjvlbbw" path="Ch13dataQuality" type="PROCESS"/>
+  <deletedItems id="_XT9EIHdtEeul8J5bLrRWpQ" path="Ch13dataQuality" type="PROCESS"/>
+  <deletedItems id="_XX_WYFBEEeyOX5bAfnTzFw" path="Ch13dataQuality" type="PROCESS"/>
+  <deletedItems id="_ZXqPYHe8EeuJaeaDjvlbbw" path="Ch13dataQuality" type="PROCESS"/>
+  <deletedItems id="_ZfNJMHe5EeuJaeaDjvlbbw" path="Ch13dataQuality" type="PROCESS"/>
+  <deletedItems id="_dKm9QIVJEeu0bPHm6lrIcg" path="Ch13dataQuality" type="PROCESS"/>
+  <deletedItems id="_ws8wQHe7EeuJaeaDjvlbbw" path="Ch13dataQuality" type="PROCESS"/>
+  <deletedItems id="_C3OA8He_EeuJaeaDjvlbbw" path="Ch15orchestration" type="PROCESS"/>
+  <deletedItems id="_CF01sHe-EeuJaeaDjvlbbw" path="Ch15orchestration" type="PROCESS"/>
+  <deletedItems id="_MqYCUIWPEeu0d8emSksmXQ" path="Ch15orchestration" type="PROCESS"/>
+  <deletedItems id="_QMgD0HduEeul8J5bLrRWpQ" path="Ch15orchestration" type="PROCESS"/>
+  <deletedItems id="_QkQOIHe-EeuJaeaDjvlbbw" path="Ch15orchestration" type="PROCESS"/>
+  <deletedItems id="_b9XbcHe-EeuJaeaDjvlbbw" path="Ch15orchestration" type="PROCESS"/>
+  <deletedItems id="_grD5oHe-EeuJaeaDjvlbbw" path="Ch15orchestration" type="PROCESS"/>
+  <deletedItems id="_qucrYFBdEeyOX5bAfnTzFw" path="Ch15orchestration" type="PROCESS"/>
+  <deletedItems id="_xRVwoFBdEeyOX5bAfnTzFw" path="Ch15orchestration" type="PROCESS"/>
+  <deletedItems id="_1t5XEHe6EeuJaeaDjvlbbw" path="ch12transformations" type="PROCESS"/>
+  <deletedItems id="_5UNEkFBBEeyOX5bAfnTzFw" path="ch12transformations" type="PROCESS"/>
+  <deletedItems id="_MyLc8He5EeuJaeaDjvlbbw" path="ch12transformations" type="PROCESS"/>
+  <deletedItems id="_O80TEHe6EeuJaeaDjvlbbw" path="ch12transformations" type="PROCESS"/>
+  <deletedItems id="_SRKYsHe6EeuJaeaDjvlbbw" path="ch12transformations" type="PROCESS"/>
+  <deletedItems id="_XI6X8HdQEeul8J5bLrRWpQ" path="ch12transformations" type="PROCESS"/>
+  <deletedItems id="_Z1bbYHe6EeuJaeaDjvlbbw" path="ch12transformations" type="PROCESS"/>
+  <deletedItems id="_ZGstIHe6EeuJaeaDjvlbbw" path="ch12transformations" type="PROCESS"/>
+  <deletedItems id="__3HUsHe4EeuJaeaDjvlbbw" path="ch12transformations" type="PROCESS"/>
+  <deletedItems id="_bto84H3eEeujNJZAc0-mLQ" path="ch12transformations" type="PROCESS"/>
+  <deletedItems id="_gL_xUHe5EeuJaeaDjvlbbw" path="ch12transformations" type="PROCESS"/>
+  <deletedItems id="_hM7NYHe6EeuJaeaDjvlbbw" path="ch12transformations" type="PROCESS"/>
+  <deletedItems id="_ix-foHe6EeuJaeaDjvlbbw" path="ch12transformations" type="PROCESS"/>
+  <deletedItems id="_kAI1AH3SEeujNJZAc0-mLQ" path="ch12transformations" type="PROCESS"/>
+  <deletedItems id="_ywk8QHe4EeuJaeaDjvlbbw" path="ch12transformations" type="PROCESS"/>
+  <deletedItems id="_Em12YHe9EeuJaeaDjvlbbw" path="ch14fileManagement" type="PROCESS"/>
+  <deletedItems id="_LmEdIINUEeu9Bs_jTpTwqg" path="ch14fileManagement" type="PROCESS"/>
+  <deletedItems id="_NkcOUINUEeu9Bs_jTpTwqg" path="ch14fileManagement" type="PROCESS"/>
+  <deletedItems id="_P9GU4Hd5Eeul8J5bLrRWpQ" path="ch14fileManagement" type="PROCESS"/>
+  <deletedItems id="_SHtVQFBUEeyOX5bAfnTzFw" path="ch14fileManagement" type="PROCESS"/>
+  <deletedItems id="_UpxHcHe9EeuJaeaDjvlbbw" path="ch14fileManagement" type="PROCESS"/>
+  <deletedItems id="_lGxscHe9EeuJaeaDjvlbbw" path="ch14fileManagement" type="PROCESS"/>
+</recyclebin:RecycleBin>

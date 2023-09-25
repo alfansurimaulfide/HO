@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010">
+  <TalendMetadata:GenericSchemaConnection xmi:id="_atDjIFvKEe68iro8OY5BVQ" comment="connectionComment" label="connectionLabel" dataPackage="_atDjIVvKEe68iro8OY5BVQ" mappingTypeUsed="true" mappingTypeId="postgres_id"/>
+  <TalendMetadata:GenericPackage xmi:id="_atDjIVvKEe68iro8OY5BVQ" dataManager="_atDjIFvKEe68iro8OY5BVQ">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_atFYUFvKEe68iro8OY5BVQ" id="_olAxcFvKEe68iro8OY5BVQ" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_atFYUVvKEe68iro8OY5BVQ" name="occupation" id="28612" label="occupation" length="20" sourceType="VARCHAR" talendType="id_String">
+        <initialValue xmi:id="_atFYUlvKEe68iro8OY5BVQ"/>
+      </feature>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_atFYU1vKEe68iro8OY5BVQ" name="income_dollar" id="28613" label="income_dollar" length="10" sourceType="INT4" talendType="id_Integer">
+        <initialValue xmi:id="_atFYVFvKEe68iro8OY5BVQ"/>
+      </feature>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_atFYVVvKEe68iro8OY5BVQ" name="load_date" id="28614" label="load_date" length="10" sourceType="DATE" talendType="id_Date" pattern="&quot;dd-MM-yyyy&quot;">
+        <initialValue xmi:id="_atFYVlvKEe68iro8OY5BVQ"/>
+      </feature>
+    </ownedElement>
+  </TalendMetadata:GenericPackage>
+</xmi:XMI>

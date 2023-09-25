@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:TalendProperties="http://www.talend.org/properties">
+  <TalendProperties:Property xmi:id="_ugnpM1glEe6UfoXFGaFefQ" id="_3CxvgFruEe60qbU1Pwu7xw" label="mysqlMetrodata" version="0.1" statusCode="" item="_ugnpNVglEe6UfoXFGaFefQ" displayName="mysqlMetrodata">
+    <author href="../../talend.project#_XAacAVSoEe6WYNcP8SL_fg"/>
+    <additionalProperties xmi:id="_ugwzIFglEe6UfoXFGaFefQ" key="created_product_fullname" value="Talend Open Studio for Big Data"/>
+    <additionalProperties xmi:id="_ugwzIVglEe6UfoXFGaFefQ" key="created_product_version" value="8.0.1.20211109_1610"/>
+    <additionalProperties xmi:id="_ugwzIlglEe6UfoXFGaFefQ" key="created_date" value="2023-09-24T22:27:23.869+0700"/>
+    <additionalProperties xmi:id="_ugwzI1glEe6UfoXFGaFefQ" key="modified_product_fullname" value="Talend Open Studio for Big Data"/>
+    <additionalProperties xmi:id="_ugwzJFglEe6UfoXFGaFefQ" key="modified_product_version" value="8.0.1.20211109_1610"/>
+    <additionalProperties xmi:id="_ugwzJVglEe6UfoXFGaFefQ" key="modified_date" value="2023-09-26T00:16:37.129+0700"/>
+    <additionalProperties xmi:id="_TXC9wFrsEe60qbU1Pwu7xw" key="import_product_fullname" value="Talend Open Studio for Big Data"/>
+    <additionalProperties xmi:id="_TXC9wVrsEe60qbU1Pwu7xw" key="import_product_version" value="8.0.1.20211109_1610"/>
+    <additionalProperties xmi:id="_TXC9wlrsEe60qbU1Pwu7xw" key="import_date" value="2023-09-24T22:09:05.155+0700"/>
+  </TalendProperties:Property>
+  <TalendProperties:ItemState xmi:id="_3DvY0FruEe60qbU1Pwu7xw" path=""/>
+  <TalendProperties:DatabaseConnectionItem xmi:id="_ugnpNVglEe6UfoXFGaFefQ" property="_ugnpM1glEe6UfoXFGaFefQ" state="_3DvY0FruEe60qbU1Pwu7xw" typeName="MySQL">
+    <connection href="mysqlMetrodata_0.1.item#_3D04YFruEe60qbU1Pwu7xw"/>
+  </TalendProperties:DatabaseConnectionItem>
+</xmi:XMI>

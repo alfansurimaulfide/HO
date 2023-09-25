@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<recyclebin:RecycleBin xmlns:recyclebin="http://www.talend.org/recyclebin">
-  <deletedFolders>process/demo</deletedFolders>
-  <deletedFolders>process/maulFirstJob</deletedFolders>
-  <deletedItems id="_SW6MgFglEe6UfoXFGaFefQ" path="" type="METADATA_CONNECTIONS"/>
-  <deletedItems id="_p5sugFYOEe63T4gRZ9m-Xw" path="maulFirstJob" type="PROCESS"/>
-</recyclebin:RecycleBin>
