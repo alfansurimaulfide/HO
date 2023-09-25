@@ -172,15 +172,7 @@
     "version" : "0.1",
     "type" : "job"
   },
-  "relatedItems" : [ {
-    "id" : "_SW6MgFglEe6UfoXFGaFefQ",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
-    "id" : "_SW6MgFglEe6UfoXFGaFefQ - sales",
-    "version" : "Latest",
-    "type" : "schema"
-  } ]
+  "relatedItems" : [ ]
 }, {
   "baseItem" : {
     "id" : "_I6-sEHAdEeugrqymtAJZeA",
@@ -930,7 +922,19 @@
     "version" : "Latest",
     "type" : "property"
   }, {
+    "id" : "_3CxvgFruEe60qbU1Pwu7xw - person",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
     "id" : "_3CxvgFruEe60qbU1Pwu7xw - sales",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_9_gmMFrwEe60qbU1Pwu7xw - person_enriched",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_LxaBoFtmEe68iro8OY5BVQ - db_to_db_postgresql_metrodata",
     "version" : "Latest",
     "type" : "schema"
   }, {

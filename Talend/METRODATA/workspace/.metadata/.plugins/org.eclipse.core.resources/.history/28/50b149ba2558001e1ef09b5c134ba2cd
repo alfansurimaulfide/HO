@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TalendMetadata:DatabaseConnection xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmi:id="_ugnpMFglEe6UfoXFGaFefQ" name="mysqlUdemy" id="_SW6MgFglEe6UfoXFGaFefQ" label="mysqlUdemy" DatabaseType="MySQL" DriverClass="com.mysql.cj.jdbc.Driver" URL="jdbc:mysql://:32769/Udemy_Talend?serverTimezone=Asia/Jakarta" dbVersionString="MYSQL_8" Port="32769" Username="root" Password="enc:system.encryption.key.v1:AX4LkQSz8Y3uOYWpssjDdC3dMju6WTOVZXwOIkJKlfKN8QIR" ServerName="" DatasourceName="" FileFieldName="" SID="Udemy_Talend" SqlSynthax="" StringQuote="" NullChar="" DbmsId="mysql_id" ProductId="MYSQL" AdditionalParams="serverTimezone=Asia/Jakarta" StandardSQL="true" SQLMode="false" UiSchema="">
-  <taggedValue xmi:id="_ugnpMVglEe6UfoXFGaFefQ" tag="Is Conn Need Reload" value="true"/>
-  <parameters xmi:id="_ugnpMlglEe6UfoXFGaFefQ" key="CONN_PARA_KEY_USERNAME" value="root"/>
-</TalendMetadata:DatabaseConnection>
